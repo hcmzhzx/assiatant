@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>搜索</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="seek" class="flexv wrap">
+    <form action="" class="flexv s-head">
+        <label class="flex center input">
+            <input type="text" class="flexitem">
+            <button type="submit" class="icon"><svg class="zs" aria-hidden="true"><use xlink:href="#FDJ"></use></svg></button>
+        </label>
+        <label class="around but">
+            <button type="button" class="item">海报</button>
+            <button type="button">H5</button>
+            <button type="button">PPT</button>
+            <button type="button">小视频</button>
+        </label>
+    </form>
+    <div class="flexitemv mainbox poster modu">
+        <div class="br list-box">
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">图片标题发大哥阿斯顿发</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿萨德</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿斯顿发生的发生撒地方胜多负少的方式的方式</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">爱迪</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">图片标题发大哥阿斯顿发</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿萨德</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿斯顿发生的发生撒地方胜多负少的方式的方式</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">爱迪</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">图片标题发大哥阿斯顿发</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿萨德</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿斯顿发生的发生撒地方胜多负少的方式的方式</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">爱迪</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">图片标题发大哥阿斯顿发</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿萨德</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">阿斯顿发生的发生撒地方胜多负少的方式的方式</em>
+            </a>
+            <a href="javascript:;" class="flexv center list">
+                <img src="../image/list.jpg" class="fitimg">
+                <em class="flexv center">爱迪</em>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="../js/icon.js"></script>
+<script src="../js/function.js"></script>
+<script type="text/javascript">
+    //点击切换but状态
+    $(".but button").click(function () {
+        if($(this).hasClass('item')) return false;
+        $(this).addClass('item').siblings().removeClass('item');
+    });
+
+    // 分页
+    ajaxPages(window.location.href,'.poster','.list-box');
+</script>
+</html>
