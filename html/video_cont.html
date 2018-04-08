@@ -11,12 +11,11 @@
 </head>
 <body>
 <div id="v-cont" class="flexv centerv wrap">
-    <div id="preview" class="flexitemv" style="display:none;">
+    <div id="preview" class="flexitemv center">
         <div class="flexv center name">视频名称</div>
         <div class="v-vdieo">
-            <!--<video  poster="" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" controls webkit-playsinline x-webkit-airplay playsinline x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
-            <video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" playsinline preload="auto" webkit-playsinline="true" x-webkit-airplay="true" x5-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
-            <!--<video poster="./img/poster.jpg" src="http://static.lianhelive.com/_upload/video3.mp4" playsinline preload="auto" webkit-playsinline="true" x-webkit-airplay="true" x5-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>-->
+            <video poster="../image/ppt.png" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" webkit-playsinline x-webkit-airplay playsinline x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>
+            <!--<video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" playsinline preload="auto" webkit-playsinline="true" x-webkit-airplay="true" x5-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>-->
             <i class="flex center icon"><svg class="zs" aria-hidden="true"><use xlink:href="#SP"></use></svg></i>
         </div>
         <div class="depict">是个黑时代光华煽风点火地方噶而过十分噶地方干哈的各环节sad搞活动覆盖撒地方噶地方官</div>
@@ -25,7 +24,7 @@
         </div>
     </div>
     <!--上传文件-->
-    <form id="custom" class="flexitemv">
+    <form id="custom" class="flexitemv" style="display:none;">
         <div class="flexv center upload">
             <div class="up-btn"></div>
             <div class="c-text">上传视频，支持MP4、AVI格式，单个视频不可超过2G。</div>
@@ -58,11 +57,15 @@
             $(this).children('video')[0].pause();
             $('.icon').show();
         }
+        $('video').bind('error ended',function () {
+            $('.icon').show();
+           console.log('结束');
+        });
     });
 
     // 上传文件
     // swf: 'https://cdn.bootcss.com/webuploader/0.1.1/Uploader.swf',
-/*
+    /*
     $(function() {
         var $ = jQuery,
             $list = $('#thelist'),
