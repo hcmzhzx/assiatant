@@ -8,24 +8,21 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 .tabbars a.item i.tz{position:relative;}
 .tabbars a.item i.tz:before{content: '';position: absolute;top:.4rem;right:0;width:.8rem;height:.8rem;border-radius:50%; background:#f00;}
 /****************************** 首页 ************************************/
-.owned .head{padding:0 1rem;height:4rem;color:#2d2d2d;}
-.owned .head .h-tit{font-weight:bold;font-size:1.6rem;text-shadow:0 2px 4px rgba(0,0,0,.1);}
-.owned .head a.seek{width:2rem;height:2rem;}
 .owned .nav{overflow-x: auto;}
 .owned .nav a{border-bottom:2px solid transparent;}
+.owned .nav a:last-child{border:none;}
+.owned .nav a.seek{width:2rem;height:2rem;}
 .owned .nav a.item{border-color:#5a93e9;}
 .owned .nav span{width:4.6rem;height:3.6rem;font-weight:bold;font-size:1.4rem;color:#ddd;}
 .owned .nav a.item span{color:#2d2d2d;}
-/*#banner{margin:1rem 1rem 2rem;}*/
 #banner .swiper-slide{padding:1rem 1rem 2rem;height:16rem;}
 #banner .swiper-slide img{box-shadow: 0 12px 20px 0 rgba(0,0,0,.1);border-radius:.8rem;}
 #banner .swiper-pagination-bullets{bottom:30px;}
 #banner .swiper-pagination-bullet{background:#fff;}
-.modu img{border-radius:.3rem;}
 .modu .tit{padding:1rem;text-shadow:0 2px 4px rgba(0,0,0,.1);}
-.modu .tit .endv{max-width:24rem;overflow: hidden;}
-.modu .tit h3{font-weight:bold;font-size:1.4rem;margin-right:1rem;}
-.modu .tit span{font-size:1rem;}
+.modu .tit .endh{max-width:24rem;overflow: hidden;}
+.modu .tit h3{font-weight:bold;font-size:1.4rem;margin-right:1rem;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:1;}
+.modu .tit span{font-size:1rem;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:1;}
 .modu .list-box .list em{height:2rem;font-size:1.2rem;color:#333;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:1;}
 .modu .more a{font-size:1rem;color:#649aeb;}
 .poster .list-box .list{width:22%;margin:0 0 .8rem .8rem;position:relative;}
@@ -56,7 +53,6 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 .T-title .T-tit{font-weight:bold;font-size:1.4rem;}
 .T-title .T-text{padding:.4rem 0;font-size:1.2rem;}
 #PPT .listbox .list{padding:1rem 1rem 0;}
-#PPT .listbox .list img{border-radius:.3rem;}
 #PPT .listbox .list p{padding:.4rem 0;font-size:1.2rem;}
 /**************************** 海报更多 *********************************/
 #poster-moer h2.tit{padding:1rem;font-weight:bold;font-size:1.4rem;}
@@ -93,10 +89,15 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #query{display: none;}
 /**************************** 消息 ************************************/
 #infomation .info-list{padding:0 1rem;}
-#infomation .info-list .list{margin-top:1rem;border-bottom:1px solid #ddd;}
+#infomation .info-list .list{padding:1rem 0;border-bottom:1px solid #ddd;}
 #infomation .info-list .list .user-img{width:3rem;height:3rem;margin-right:1rem;}
+#infomation .info-list .list .top{margin-bottom:1rem;}
 #infomation .info-list .list .top .name{max-width:10rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
-#infomation .info-list .content .text{margin:1rem 0;overflow:hidden;-webkit-line-clamp:2;}
+#infomation .info-list .list .top .date{font-size:1.2rem;color:#bbb;}
+#infomation .info-list .content .imgbox{margin-bottom:1rem;}
+#infomation .info-list .content .imgbox img{display: inline-block;}
+
+
 /************************** 个人中心 **********************************/
 #personal .bj{position:relative;}
 #personal .bj:before{content:'';width:100%;height:80%;background:#f5f5f5;position:absolute;left:0;bottom:0;z-index:-1;border-top-left-radius:4rem;border-top-right-radius:4rem;}
@@ -177,24 +178,23 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #basic .user-info .right i{width: 2rem;height: 2rem;font-size: 2rem;}
 #basic .user-info .name{border-bottom: 1px solid #e9e9e9;}
 #basic .user-info .brand{border-bottom: 1px solid #e9e9e9;}
-
-
+#basic .user-info .LOGO span{height:5rem;}
+#basic .user-info .LOGO .userimg{width: 5rem;height:5rem;}
 #basic .user-info .qrcode span{height:5rem;}
 #basic .user-info .qrcode .userimg{width: 5rem;height:5rem;}
-#basic .user-info .qrcode #qrcodeimg{opacity: 0;}
 #basic a.clook{margin:1rem;color:#f6504d;display: inline-block;font-size: 1.4rem;}
 #basic .user-info .button{margin: 24px 10px;}
-#basic .user-info .button a{height: 4rem;background: -webkit-linear-gradient(#f95e48, #f7403c);color:#fdebea;border-radius: 6rem;font-size: 1.8rem;}
+#basic .user-info .button a{width:12rem;height:2.8rem;background:#4384e6;color:#fdebea;border-radius:.6rem;font-size:1.8rem;}
 #basic .bottom{height:5rem;font-size: 1.2rem;}
 /*图片裁剪*/
 .cliper{position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;opacity:0;z-index:-1;transition: opacity 0.5s linear;-webkit-transition: opacity 0.5s linear;}
 .cliper .header{position:absolute;top:0;left:0;right:0;height:5.2rem;line-height:5.2rem;background:#fdfdfd;border-bottom: 1px solid #eee;padding: 0 6rem;font-size:1.4rem}
 .cliper .header .side{position:absolute;top:0;width:6rem;text-align:center;bottom:0;}
 .cliper .header .cancel{left:0;color:#f00;}
-.cliper .header .confirm{right:0;color: #27e;}
+.cliper .header .confirm{right:0;color:#27e;}
 .cliper .header .title{text-align:center;}
 .cliper .cliperbox{position:absolute;top:5.2rem;left:0;right:0;bottom:0;}
-/******************************* 品牌 ************************************/
+/** 品牌 **/
 #brand-menu.dialog_box {position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:100;overflow-y: auto;transform: translateX(100%);transition: transform 0.3s linear;}
 #brand-menu .brand-head{height: 5rem;padding:0 1.4rem;background: #393a3e;}
 #brand-menu .brand-head i.icon{width:2rem;height:2rem;}
@@ -205,7 +205,25 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #brand-menu .lettrt{position: fixed;top:5rem;right:0;bottom:0;width:30px;overflow:hidden;}
 #brand-menu .lettrt li>a{display:block;color:#84c2b2;text-align: center;font-size: 1.4rem;}
 #brand-menu.show{transform: translateX(0);}
-
+/******************************* 开通会员 ************************************/
+#open{background: #fff;}
+#open .state{padding:1rem;font-size:1.8rem;}
+#open .state span{color:#ffb400;}
+#open .bjimg{position:relative;font-size:0;background:#ffb400;}
+#open .bjimg .option{margin:1rem;background:#fff;border-radius:1rem;}
+#open .bjimg .option .discount{margin:1rem;width:26rem;border-radius:1rem;overflow:hidden;border: 1px dashed #ffb400;}
+#open .bjimg .option .list{padding: 1rem 2rem;border-bottom: 1px dashed #ffb400;overflow:hidden;position:relative;}
+#open .bjimg .option .list:last-child{border-bottom:none;}
+#open .bjimg .option .list .cornu{width:5rem;background:#ffb400;color:#fff;transform:rotate(-39deg);font-size:1rem;position:absolute;top:0.4rem;left:-1.2rem; }
+#open .bjimg .option .price{padding: 0.5rem 0;}
+#open .bjimg .option span{font-weight:bolder;font-size:1.4rem;color:#000;}
+#open .bjimg .option em{padding-left: 1rem;font-size:1.8rem;color:#ffb400;}
+#open .bjimg .option i{text-decoration:line-through;color:#999;}
+#open .bjimg .option a{width:7rem;height:3rem;background:-webkit-linear-gradient(#ffc63f, #ff8c00);color:#fdebea;border-radius:5rem;margin-top:0.6rem;font-size:1.3rem;}
+#open .bjimg .option .list .cost{font-size:1.2rem;}
+#open .bjimg .option .list .cost span{font-size:1.2rem;}
+#open .once{padding: 1rem 0;width:100%; position: fixed;bottom:0rem;}
+#open .once a{width: 80%;height: 3.5rem;background: -webkit-linear-gradient(#ffc63f, #ff8c00);color:#fdebea;border-radius: 5rem;font-size: 1.8rem;}
 
 
 

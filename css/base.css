@@ -37,7 +37,7 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appear
 .around{display:flex;justify-content:space-around;align-items:center;}  /*等间距*/
 .br{display: flex;flex-wrap:wrap;}  /*换行*/
 .wrap{height:100%;}
-.fitimg{width:100%;height:100%;}
+.fitimg{width:100%;height:100%;border-radius:.3rem;}
 .radimg{width:100%;height:100%;border-radius:50%;}
 .mainbox{position:relative;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .mainbox::-webkit-scrollbar{display: none;} /*清除滚动条*/

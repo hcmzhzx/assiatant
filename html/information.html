@@ -13,21 +13,11 @@
     <div class="flexitemv mainbox">
         <div class="flexv info-list">
             <div class="flex list">
-            <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
-            <div class="flexitemv content">
-                <div class="between top">
-                    <span class="flexv center name">滴滴助手-小D</span>
-                    <em class="flex center data">2018-04-06</em>
-                </div>
-                <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
-            </div>
-        </div>
-            <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
                     <div class="between top">
                         <span class="flexv center name">滴滴助手-小D</span>
-                        <em class="flex center data">2018-04-06</em>
+                        <em class="flex center date">2018-04-06</em>
                     </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
@@ -37,7 +27,7 @@
                 <div class="flexitemv content">
                     <div class="between top">
                         <span class="flexv center name">滴滴助手-小D</span>
-                        <em class="flex center data">2018-04-06</em>
+                        <em class="flex center date">2018-04-06</em>
                     </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
@@ -47,41 +37,57 @@
                 <div class="flexitemv content">
                     <div class="between top">
                         <span class="flexv center name">滴滴助手-小D</span>
-                        <em class="flex center data">2018-04-06</em>
+                        <em class="flex center date">2018-04-06</em>
+                    </div>
+                    <div class="imgbox">
+                        <img src="../image/list.jpg">
                     </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
+
             <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
                     <div class="between top">
                         <span class="flexv center name">滴滴助手-小D</span>
-                        <em class="flex center data">2018-04-06</em>
+                        <em class="flex center date">2018-04-06</em>
+                    </div>
+                    <div class="imgbox">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
                     </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
+
             <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
                     <div class="between top">
                         <span class="flexv center name">滴滴助手-小D</span>
-                        <em class="flex center data">2018-04-06</em>
+                        <em class="flex center date">2018-04-06</em>
                     </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
+
             <div class="flex list">
-            <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
-            <div class="flexitemv content">
-                <div class="between top">
-                    <span class="flexv center name">滴滴助手-小D</span>
-                    <em class="flex center data">2018-04-06</em>
+                <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
+                <div class="flexitemv content">
+                    <div class="between top">
+                        <span class="flexv center name">滴滴助手-小D</span>
+                        <em class="flex center date">2018-04-06</em>
+                    </div>
+                    <div class="imgbox">
+                        <img src="../image/list.jpg">
+                    </div>
+                    <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
-                <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
             </div>
-        </div>
+
         </div>
     </div>
     <!--底部导航-->
@@ -115,5 +121,14 @@
 <script type="text/javascript">
     // 分页
     ajaxPages(window.location.href,'.mainbox','.info-list');
+
+    // 控制图片大小
+    $('.imgbox').each(function(){
+        if($(this).children('img').length==1){
+            $(this).children('img').css({'width':'14rem','height':'20rem'})
+        } else {
+            $(this).children('img').css({'width':'8rem','height':'8rem'})
+        }
+    });
 </script>
 </html>
