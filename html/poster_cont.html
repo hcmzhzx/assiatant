@@ -16,16 +16,24 @@
     </div>
     <div class="around btn">
         <a href="javascript:;" class="flex center use">一键使用</a>
-        <a href="javascript:;" class="flex center custom">定制模板</a>
-    </div>
-    <div id="alert" class="flex center">
-        <div class="content">
-
-        </div>
+        <a href="custom-modu.html" class="flex center custom">定制模板</a>
     </div>
 </div>
 </body>
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="../js/functions.js"></script>
 <script type="text/javascript">
-  
+    // 一键使用未完善信息提示
+    /*$('.btn .use').click(function(){
+        showAlert('','为了您的账户安全，请先完善个人信息。',[{t:'好的，现在就去完善',u:'basic.html'}]);
+    });*/
+
+    //替换成功
+    $('.btn .use').click(function(){
+        showAlert('','恭喜你，已替换成功！',[{t:'知道了'}]);
+    });
+
+
+
 </script>
 </html>

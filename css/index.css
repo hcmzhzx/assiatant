@@ -1,9 +1,7 @@
-@import url(https://at.alicdn.com/t/font_615981_4g519ec31z4r6bt9.css);
-body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hidden;-webkit-text-stroke-width: 0;}
+body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidden;-webkit-text-stroke-width: 0;}
 /***************************** 底部栏 ***********************************/
 .tabbars{height:5rem;background:#fff;position:relative;z-index:1;}
-.tabbars a.item i.zs{width:2rem;height:3rem;font-size:2rem;color:#999;}
-.tabbars a.icon i.zs{color:#5a48dd;}
+.tabbars a.item i.icon{width:2.4rem;height:3rem;}
 .tabbars a.item span{font-size:1rem;}
 .tabbars a.item i.tz{position:relative;}
 .tabbars a.item i.tz:before{content: '';position: absolute;top:.4rem;right:0;width:.8rem;height:.8rem;border-radius:50%; background:#f00;}
@@ -27,9 +25,10 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 .modu .more a{font-size:1rem;color:#649aeb;}
 .poster .list-box .list{width:22%;margin:0 0 .8rem .8rem;position:relative;}
 .poster .list-box .list img{height:12rem;}
-.H5-anime .list-box a{width:30%;margin:0 0 .8rem .8rem;}
+.H5-anime .list-box .list{width:30%;margin:0 0 .8rem .8rem;}
 .H5-anime .list-box .list img{height:16rem;}
-#home .PPT{padding:2rem 1rem;}
+.PPT .item{padding:1rem 1rem 0;}
+.PPT .item em{padding:.4rem 0;font-size:1.2rem;}
 .video .listbox{padding:0 1rem;}
 .video .listbox .lists{padding-bottom:1rem;}
 .video .listbox .lists .img{width:8rem;height:6rem;}
@@ -37,7 +36,7 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 .video .listbox .lists .cont h3{font-weight:normal;font-size:1.4rem;height:4rem;color:#424242;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
 .video .listbox .lists .cont .base{padding:0.2rem 0;color:#969696;font-size: 1.2rem;}
 .video .listbox .lists .cont .base span{margin-right:1rem;}
-.video .listbox .lists .cont .base span i{font-size:1.6rem;}
+.video .listbox .lists .cont .base span .icon{width:1.44rem;height:1.44rem;margin-right:.2rem;}
 .bottom{padding:1rem 0 2rem;background:#f5f5f5;}
 .bottom p{padding:1rem 0;}
 .bottom button{width:8rem;height:2rem;border-radius:.4rem;border:1px solid #649aeb;color:#649aeb;}
@@ -49,14 +48,20 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #PPT .special::-webkit-scrollbar{display: none;}
 #PPT .special .s-list span{margin-left:1rem;width:7.4rem;height:7.4rem;font-size:1.8rem;color:#fff;}
 #PPT .special .s-list:last-child span{margin-right:1rem;}
-.T-title{padding:1rem 0;}
-.T-title .T-tit{font-weight:bold;font-size:1.4rem;}
-.T-title .T-text{padding:.4rem 0;font-size:1.2rem;}
-#PPT .listbox .list{padding:1rem 1rem 0;}
-#PPT .listbox .list p{padding:.4rem 0;font-size:1.2rem;}
-/**************************** 海报更多 *********************************/
-#poster-moer h2.tit{padding:1rem;font-weight:bold;font-size:1.4rem;}
-
+#PPT .PPT{padding-bottom:1rem;}
+/**************************** 本月推荐 *********************************/
+#recommend .r-title{padding:.4rem 1rem;font-weight:bold;font-size:1.4rem;}
+#recommend .monthbox a.list{width:46%;margin:0 0 .8rem .8rem;}
+/***************************** 仓库 *************************************/
+#depot .d-head{padding:1rem;box-shadow:0 0 20px 0 rgba(0,0,0,.4);}
+#depot .d-head .sort-btn a.btn{width:8rem;height:2.4rem;margin-right:1rem;border:1px solid #bbb;border-radius:.3rem;font-size:1.2rem;}
+#depot .d-head .sort-btn a.item{background:#4384e6;color:#ffff;}
+#depot .d-head .seek{width:2rem;height:2rem;}
+#depot .mainbox{padding-top:1rem;}
+/**************************** 更多模板 *********************************/
+#content-more .head-img{height:15rem;}
+#content-more .head-img img{border-radius:initial;}
+#content-more h2.tit{padding:1rem;font-size:1.2rem;}
 /**************************** 搜索 ************************************/
 #seek .s-head{padding:1rem;}
 #seek .s-head input{margin:0 1rem;padding:0 .4rem;border:1px solid #ddd;border-radius:.4rem;height:3rem;box-shadow:inset 0 0 2px 0 rgba(0,0,0,.2);font-size:1.2rem;}
@@ -69,6 +74,18 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #custom #banner{background:#ddd;}
 #custom .text{margin:2rem;font-size:1.4rem;color:#707070;}
 #custom a.btn{margin:0 auto;width:20rem;height:3rem;border-radius:2rem;background:#4384e6;font-size:1.4rem;color:#fff;}
+/************************** 定制内容提交 *********************************/
+#custom-cont{padding:0 1rem;}
+#custom-cont input,#custom-cont textarea{background:#ededed;padding:1rem;border-radius:.4rem;font-size:1.2rem;}
+#custom-cont .area{margin-bottom:1rem;}
+#custom-cont .c-tit{margin:1rem 0;font-weight:bold;font-size:1.2rem;color:#666;}
+#custom-cont .up-href input{width:100%;height:2.6rem;}
+#custom-cont .up-img,#custom-cont .up-video{margin-bottom:0;}
+#custom-cont .up-text .claim{height:14rem;}
+#custom-cont .up-ask .claim{height:10rem;}
+#custom-cont .up-type .typebox button{width:5rem;height:2rem;border:1px solid #bbb;border-radius:.4rem;font-size:1rem;}
+#custom-cont .up-type .typebox button.item{background:#4384e6;color:#fff;}
+#custom-cont .submit .btn{margin:4rem;width:18rem;height:3rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /************************** 我的模板 ************************************/
 #my_modu .open-member{padding:2rem 0;background:#f5f5f5;}
 #my_modu .open-member p{margin:1rem 0;font-size:1.2rem;}
@@ -96,8 +113,6 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #infomation .info-list .list .top .date{font-size:1.2rem;color:#bbb;}
 #infomation .info-list .content .imgbox{margin-bottom:1rem;}
 #infomation .info-list .content .imgbox img{display: inline-block;}
-
-
 /************************** 个人中心 **********************************/
 #personal .bj{position:relative;}
 #personal .bj:before{content:'';width:100%;height:80%;background:#f5f5f5;position:absolute;left:0;bottom:0;z-index:-1;border-top-left-radius:4rem;border-top-right-radius:4rem;}
@@ -142,18 +157,18 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #PPT-cont .brief .label span{display:inline-block;border:1px solid #bbb;margin-right:.6rem;padding:.1rem .8rem;border-radius:.2rem;}
 #PPT-cont .brief .date span{font-size:1.2rem;color:#bbb;}
 #PPT-cont .p-btn a.btn{width:10rem;height:3.4rem;background:#e3e3e3;border-radius:.4rem;font-size:1.4rem;}
-/****************************** 定制PPT *********************************/
-#PPT-custom .hint-t{padding:.4rem 0;font-size:1rem;color:#737373;}
-#PPT-custom .upload{margin:1rem;}
-#PPT-custom .upload .up-btn{width:6.5rem;height:6.5rem;border:2px solid #eee;position:relative;margin:0 1rem 1rem 0;}
-#PPT-custom .upload .up-btn:before{content:'';width:24px;height:2px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-#PPT-custom .upload .up-btn:after{content:'';width:2px;height:24px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-#PPT-custom .claimbox .claim{margin:0 1rem 2rem;}
-#PPT-custom .claimbox .claim{background:#ededed;padding:.4rem 1rem;font-size:1.4rem;border-radius:.6rem;box-shadow:0 2px 12px 0 rgba(0,0,0,.4);}
-#PPT-custom .claimbox .claim:first-child{height:10rem;}
-#PPT-custom .claimbox .claim:last-child{height:7rem;}
-#PPT-custom .submit{min-height:10rem;}
-#PPT-custom .submit .btn{width:20rem;height:2.6rem;background:#4384e6;margin-bottom:2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
+/*************************** 定制PPT及海报模板 ****************************/
+#custom-modu .hint-t{padding:.4rem 0;font-size:1rem;color:#737373;}
+#custom-modu .upload{margin:1rem;}
+.upload .up-btn{width:6.5rem;height:6.5rem;border:2px solid #eee;position:relative;margin:0 1rem 1rem 0;}
+.upload .up-btn:before{content:'';width:24px;height:2px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.upload .up-btn:after{content:'';width:2px;height:24px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+#custom-modu .claimbox .claim{margin:0 1rem 2rem;}
+#custom-modu .claimbox .claim{background:#ededed;padding:.4rem 1rem;font-size:1.4rem;border-radius:.6rem;box-shadow:0 2px 12px 0 rgba(0,0,0,.4);}
+#custom-modu .claimbox .claim:first-child{height:10rem;}
+#custom-modu .claimbox .claim:last-child{height:7rem;}
+#custom-modu .submit{min-height:10rem;}
+#custom-modu .submit .btn{width:20rem;height:2.6rem;background:#4384e6;margin-bottom:2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /*定制成功界面*/
 #succeed .win{height:20rem;}
 #succeed .s-text{margin:2rem;line-height:2rem;font-size:1.2rem;}
@@ -163,6 +178,9 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #poster-cont .poster{margin:1rem 2.8rem;}
 #poster-cont .btn{margin:2rem;}
 #poster-cont .btn a{width:10rem;height:2.8rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#ffff;}
+#alert .content{padding:1rem;font-size:1.26rem;}
+#alert .content .text{width:100%;padding-bottom:1rem;color:#4384e6;}
+#alert .content .btns{color:#448043;}
 /***************************** 基本信息 ********************************/
 #basic{background:#f2f2f2;position:relative;}
 #basic .users{margin-top: 10px;padding: 0 10px;background: #fff;}
@@ -224,36 +242,6 @@ body{background:#fff;}.zs{width:100%; height:100%;fill:currentColor;overflow:hid
 #open .bjimg .option .list .cost span{font-size:1.2rem;}
 #open .once{padding: 1rem 0;width:100%; position: fixed;bottom:0rem;}
 #open .once a{width: 80%;height: 3.5rem;background: -webkit-linear-gradient(#ffc63f, #ff8c00);color:#fdebea;border-radius: 5rem;font-size: 1.8rem;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -98,14 +98,14 @@ function showAlert (title,text,btns,callback){
     var button = '';
     for(var h = 0;h < btns.length;h++){
         var url = btns[h].u || '',w = 100 / btns.length;
-        button += '<a href="javascript:;" class="btns" data-url="' + url + '" style="width:' + w + '%">' + btns[h].t + '</a>';
+        button += '<a href="'+url+'" class="btns" data-url="' + url + '" style="width:' + w + '%">' + btns[h].t + '</a>';
     }
     var template = '<div id="alert">' +
         '<div class="mask" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>' +
         '<div class="content">' +
         name +
         '<div class="text">' + text + '</div>' +
-        '<div class="clearfix button">' + button + '</div>' +
+        '<div class="flex end button">' + button + '</div>' +
         '</div>' +
         '</div>';
     $('body').append(template);
@@ -321,12 +321,11 @@ function showCliper (id,cid,title,callback){
 
 /**
  * 定制成功界面
- * @param id 裁剪框dom id
  * @param img 要插入的图片地址
  * @param text 需要填写的内容
  * @param modu 要查看的模板地址
  */
-function customSuccess(dom,img,text,modu) {
+function customSuccess(img,text,modu) {
     const html = `<div id="succeed" class="flexitemv">
             <div class="flex center win"><img src="${img}" class="fitimg"></div>
             <div class="flexitem center s-text">${text}</div>
@@ -335,5 +334,5 @@ function customSuccess(dom,img,text,modu) {
                 <a href="index.html" class="flex center check-btn">返回首页</a>
             </div>
         </div>`;
-    $(dom).append(html);
+    $('#custom-modu').append(html);
 }
