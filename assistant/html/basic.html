@@ -102,7 +102,7 @@
     InfoBrand('#basic','.brand','#brand');
 
     //表单验证
-    const checker = new checkForm({
+    var checker = new checkForm({
         form:'.user-info',
         btn:'.submit',
         error:function(ele,err){showMsg(err);},
@@ -207,6 +207,7 @@
             });
         });
     });
+
 
 </script>
 </html>
