@@ -51,7 +51,7 @@
             var numUp = imgContainer.find(".up-img").length;
             var totalNum = numUp + fileList.length;  //总的数量
             if(fileList.length > defaults.fileNum || totalNum > defaults.fileNum ){
-                alert("上传图片数目不可以超过5个，请重新选择");
+                alert("上传图片数目不可以超过20个，请重新选择");
             } else if(numUp < defaults.fileNum){
                 fileList = validateUp(fileList);
                 for(var i = 0;i<fileList.length;i++){
@@ -81,7 +81,6 @@
                 $(this).parent().hide();
             }
         });
-
         function validateUp(files){
             var arrFiles = [];//替换的文件数组
             for(var i = 0, file; file = files[i]; i++){
@@ -92,7 +91,6 @@
                     if(jQuery.inArray(type, defaults.fileType) > -1){
                         // 类型符合，可以上传
                         if (file.size >= defaults.fileSize) {
-                            alert(file.size);
                             alert('您这个"'+ file.name +'"文件大小过大');
                         } else {
                             // 在这里需要判断当前所有文件中

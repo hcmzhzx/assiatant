@@ -10,26 +10,24 @@
 </head>
 <body>
 <div id="v-cont" class="flexv centerv wrap">
-    <!--<div id="preview" class="flexitemv center" style="display: none">
+    <div id="preview" class="flexitemv center">
         <div class="flexv center name">视频名称</div>
         <div class="v-vdieo">
             <video poster="../image/ppt.png" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" webkit-playsinline x-webkit-airplay playsinline x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>
-            &lt;!&ndash;<video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" playsinline preload="auto" webkit-playsinline="true" x-webkit-airplay="true" x5-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>&ndash;&gt;
+            <!--<video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" playsinline preload="auto" webkit-playsinline="true" x-webkit-airplay="true" x5-playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>-->
             <i class="flex center icon"><svg class="zs" aria-hidden="true"><use xlink:href="#SP"></use></svg></i>
         </div>
         <div class="depict">是个黑时代光华煽风点火地方噶而过十分噶地方干哈的各环节sad搞活动覆盖撒地方噶地方官</div>
         <div class="flexitem center made-btn">
-            <a href="javascript:;" class="flex center btn">定制这个模板</a>
+            <a href="video_up.html" class="flex center btn">定制这个模板</a>
         </div>
-    </div>-->
-    <!--上传文件-->
-
+    </div>
 </div>
 </body>
 <script src="../js/icon.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-    /*//判断是横竖
+    //判断是横竖
     if($('video')[0].videoWidth > $('video')[0].videoHeight){
         $('.v-vdieo').height(16+'rem');
     } else {
@@ -56,39 +54,6 @@
     $('.made-btn .btn').click(function () {
         $('#preview').hide();
         $('#custom').show();
-    });*/
-
-
-    /*点击的文本框*/
-    $(".file").change(function() {//存放视频的父亲元素
-        var videoContainer = $(this).parents(".upload"),file = document.querySelector('.file').files[0],delParent; //获取的视频文件
-//        var fileSize = ((file.size/1024)/1024)/1024,windowURL = window.URL || window.webkitURL,videoURL = windowURL.createObjectURL(file);
-//        if(fileSize <= 2){
-            $('.up-btn').hide();
-            var v_box = `<div class="z-up videobox"><video src="${videoURL}"></video></div>`;
-            videoContainer.prepend(v_box);
-            // 删除
-            var $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
-                event.preventDefault();
-                event.stopPropagation();
-                delParent = $(this).parent();
-                delParent.parent().find(".up-btn").show();
-                delParent.remove();
-            });
-            $del.appendTo(v_box);
-//            var video = $('.videobox').find('video')[0],can = document.createElement("canvas"),ctx = can.getContext('2d');
-//            video.remove();
-            // 生成缩略图
-             /*setTimeout(function () {
-                can.width = video.videoWidth/2;
-                can.height = video.videoHeight/2;
-                ctx.drawImage(video, 0, 0, can.width, can.height);
-                $('.videobox').html(`<img src="${can.toDataURL('image/jpeg')}" class="fitimg">`);
-            },400);*/
-//        } else{
-//            alert("视频太大了啦~");
-//        }
     });
-
 </script>
 </html>

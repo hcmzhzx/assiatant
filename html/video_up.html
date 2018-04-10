@@ -9,18 +9,14 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<form id="custom" class="flexitemv">
+<form id="video-up" class="flexitemv wrap">
     <div class="flexitemv custombox">
-
-
         <div class="around upload">
             <div class="up-btn z-up">
                 <input type="file" name="file" class="file" value="" accept="image/jpg"/>
             </div>
             <div class="c-text">上传视频，支持MP4、AVI格式，单个视频不可超过2G。</div>
         </div>
-
-
         <div class="flexv claimbox">
             <textarea class="flex claim" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>
             <textarea class="flex claim" placeholder="写下您的要求，我们会尽量满足您哦。"></textarea>
@@ -37,31 +33,39 @@
     /*点击的文本框*/
     $(".file").change(function() {//存放视频的父亲元素
         var videoContainer = $(this).parents(".upload"),file = document.querySelector('.file').files[0],delParent; //获取的视频文件
-        var fileSize = ((file.size/1024)/1024)/1024,windowURL = window.URL || window.webkitURL,videoURL = windowURL.createObjectURL(file);
-        if(fileSize <= 2){
-        $('.up-btn').hide();
-        var v_box = '<div class="z-up videobox"></div>';
-        videoContainer.prepend(v_box);
-        // 删除
-        var $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
-            event.preventDefault();
-            event.stopPropagation();
-            delParent = $(this).parent();
-            delParent.parent().find(".up-btn").show();
-            delParent.remove();
-        });
-        $del.appendTo(v_box);
-        var video = $('.videobox').find('video')[0],can = document.createElement("canvas"),ctx = can.getContext('2d');
-        video.remove();
-        // 生成缩略图
-        /*setTimeout(function () {
-         can.width = video.videoWidth/2;
-         can.height = video.videoHeight/2;
-         ctx.drawImage(video, 0, 0, can.width, can.height);
-         $('.videobox').html(`<img src="${can.toDataURL('image/jpeg')}" class="fitimg">`);
-         },400);*/
-        } else{
-            alert("视频太大了啦~");
+        var fileSize = 1024 * 1024 * 1024 * 2,windowURL = window.URL || window.webkitURL,videoURL = windowURL.createObjectURL(file);
+        if(file.size <= fileSize){
+            $('.up-btn').hide();
+            var v_box = $(`<div class="z-up videobox"><video src="${videoURL}"></video></div>`);
+            videoContainer.prepend(v_box);
+            // 删除
+            var $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                event.preventDefault();
+                event.stopPropagation();
+                delParent = $(this).parent();
+                delParent.parent().find(".up-btn").show();
+                delParent.remove();
+            });
+            $del.appendTo(v_box);
+            var video = $('.videobox').find('video')[0],can = document.createElement("canvas"),ctx = can.getContext('2d');
+            video.remove();
+            // 生成缩略图
+            setTimeout(function () {
+                can.width = video.videoWidth/2;
+                can.height = video.videoHeight/2;
+                ctx.drawImage(video, 0, 0, can.width, can.height);
+                $('.videobox').append(`<img src="${can.toDataURL("image/jpeg")}" class="fitimg">`);
+            },500);
+
+            /*var time = setInterval(function () {
+                if(videoContainer.find('img').attr('src').length>10){
+                    v_box.removeClass('loading');
+                    clearInterval(time);
+                }
+            },30)*/
+
+        } else {
+            alert('文件大小过大');
         }
     });
 </script>

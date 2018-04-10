@@ -139,12 +139,11 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #v-cont .v-vdieo .icon{width:4rem;height:4rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 #v-cont .depict{margin:1rem;font-size:1.2rem;}
 #v-cont .made-btn .btn{width:12rem;height:2.6rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
-
-#custom{width:100%;height:100%;}
-#custom .upload{margin-top:1rem;}
-/*#custom .upload .up-btn{width:6rem;height:6rem;margin:0;}*/
-#custom .upload .c-text{margin:1rem 0;width:20rem;font-size:1rem;color:#bbb;}
-#custom .submit .s-btn{width:18rem;height:2.6rem;background:#4384e6;margin:4rem 1rem 2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
+/**************************** 上传视频 *********************************/
+#video-up .upload{margin:1rem 1rem 0;}
+#video-up .upload .loading{background: rgba(0,0,0,.2)url(../image/loading.gif)no-repeat center;}
+#video-up .upload .c-text{margin:1rem 0;width:20rem;font-size:1rem;color:#bbb;}
+#video-up .submit .s-btn{width:18rem;height:2.6rem;background:#4384e6;margin:4rem 1rem 2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /****************************** PPT模板内容 *********************************/
 #PPT-cont .head-t{margin:1rem 0;font-size:1.4rem;}
 #PPT-cont .content{height:14rem;}
