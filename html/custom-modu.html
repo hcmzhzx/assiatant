@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>定制模板</title>
+    <title>上传信息</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<div id="custom-modu" class="flexv wrap">
+<form id="custom-modu" class="flexv wrap">
     <div class="flexitemv mainbox interface">
         <div class="hint-t">上传您需要替换的图片，清晰度高的图片效果更好哦。</div>
+
         <div class="br upload">
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
+            <div class="up-btn z-up">
+                <input type="file" name="file" class="file" value="" accept="image/jpg,image/jpeg,image/png"/>
+            </div>
         </div>
+
         <div class="flexv claimbox">
             <textarea class="flex claim" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>
             <textarea class="flex claim" placeholder="写下您的要求，我们会尽量满足您哦。"></textarea>
@@ -26,12 +27,84 @@
             <a href="javascript:;" class="flex center btn">确认提交</a>
         </div>
     </div>
-</div>
+</form>
 </body>
 <script src="../js/icon.js"></script>
-<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript">
+    // 图片上传
+    $(function(){
+        var delParent;
+        var defaults = {
+            fileType: ["jpg","png","jpeg"],   // 上传文件的类型
+            fileSize: 1024 * 1024 * 10 ,      // 上传文件的大小 10M
+            fileNum : 20                      // 上传图片总张数
+        };
+        /*点击图片的文本框*/
+        $(".file").change(function(){
+            var file = document.querySelector('.file')
+            var imgContainer = $(this).parents(".upload"); //存放图片的父亲元素
+            var fileList = file.files; //获取的图片文件
+            var imgArr = [];
+            //遍历得到的图片文件
+            var numUp = imgContainer.find(".up-img").length;
+            var totalNum = numUp + fileList.length;  //总的数量
+            if(fileList.length > defaults.fileNum || totalNum > defaults.fileNum ){
+                alert("上传图片数目不可以超过5个，请重新选择");
+            } else if(numUp < defaults.fileNum){
+                fileList = validateUp(fileList);
+                for(var i = 0;i<fileList.length;i++){
+                    var imgUrl = window.URL.createObjectURL(fileList[i]);
+                    imgArr.push(imgUrl);
+                    var $section = $("<div class='z-up'>");
+                    imgContainer.prepend($section);
+                    // 删除
+                    var $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                        event.preventDefault();
+                        event.stopPropagation();
+                        delParent = $(this).parent();
+                        var numUp = delParent.siblings().length;
+                        if(numUp < defaults.fileNum+1){
+                            delParent.parent().find(".up-btn").show();
+                        }
+                        delParent.remove();
+                    });
+                    $del.appendTo($section);
+                    var $img = $("<img class='up-img fitimg'>");
+                    $img.attr("src",imgArr[i]);
+                    $img.appendTo($section);
+                }
+            }
+            numUp = imgContainer.find(".up-img").length;
+            if(numUp >= defaults.fileNum){
+                $(this).parent().hide();
+            }
+        });
+
+        function validateUp(files){
+            var arrFiles = [];//替换的文件数组
+            for(var i = 0, file; file = files[i]; i++){
+                //获取文件上传的后缀名
+                var newStr = file.name.split("").reverse().join("");
+                if(newStr.split(".")[0] != null){
+                    var type = newStr.split(".")[0].split("").reverse().join("");
+                    if(jQuery.inArray(type, defaults.fileType) > -1){
+                        // 类型符合，可以上传
+                        if (file.size >= defaults.fileSize) {
+                            alert(file.size);
+                            alert('您这个"'+ file.name +'"文件大小过大');
+                        } else {
+                            // 在这里需要判断当前所有文件中
+                            arrFiles.push(file);
+                        }
+                    }
+                }
+            }
+            return arrFiles;
+        }
+    });
+
     // 定制成功页面
     $('.submit .btn').click(function(){
         $('.interface').hide();
