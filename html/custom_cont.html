@@ -19,17 +19,18 @@
     <div class="flexv up-img area">
         <p class="flex c-tit">上传图片素材</p>
         <div class="br upload">
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
-            <div class="flex up-btn"></div>
+            <div class="flex up-btn up-img-btn">
+                <input type="file" multiple class="file file-img" accept="image/jpg,image/png,image/jpeg">
+            </div>
         </div>
     </div>
     <!--上传视频-->
     <div class="flexv up-video area">
         <p class="flex c-tit">上传视频素材</p>
         <div class="upload">
-            <div class="flex up-btn"></div>
+            <div class="flex up-btn up-video-btn">
+                <input type="file" class="file file-video" accept="video/mp4,video/avi"/>
+            </div>
         </div>
     </div>
     <!--填写文案内容-->
@@ -63,11 +64,125 @@
     </div>
 </form>
 </body>
-<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="../js/icon.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/functions.js"></script>
 <script type="text/javascript">
+$(function () {
+    /*点击上传图片*/
+    $(".file-img").change(function(){
+        let delParent,defaults = {
+            fileType: ["jpg","png","jpeg"],   // 上传文件的类型
+            fileSize: 1024 * 1024 * 10 ,      // 上传文件的大小 10M
+            fileNum : 20                      // 上传图片总张数
+        };
+        let file = document.querySelector('.file-img');
+        let imgContainer = $(this).parents(".upload"); //存放图片的父亲元素
+        console.log(imgContainer);
+        let fileList = file.files; //获取的图片文件
+        let imgArr = [];
+        //遍历得到的图片文件
+        let numUp = imgContainer.find(".up-img").length;
+        let totalNum = numUp + fileList.length;  //总的数量
+        if(fileList.length > defaults.fileNum || totalNum > defaults.fileNum ){
+            alert("上传图片数目不可以超过20个，请重新选择");
+        } else if(numUp < defaults.fileNum){
+            fileList = validateUp(fileList);
+            for(let i = 0;i<fileList.length;i++){
+                let imgUrl = window.URL.createObjectURL(fileList[i]);
+                imgArr.push(imgUrl);
+                let $section = $("<div class='z-up'>");
+                imgContainer.prepend($section);
+                // 删除
+                let $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    delParent = $(this).parent();
+                    let numUp = delParent.siblings().length;
+                    if(numUp < defaults.fileNum+1){
+                        delParent.parent().find(".up-btn").show();
+                    }
+                    delParent.remove();
+                });
+                $del.appendTo($section);
+                let $img = $("<img class='up-img fitimg'>");
+                $img.attr("src",imgArr[i]);
+                $img.appendTo($section);
+            }
+        }
+        numUp = imgContainer.find(".up-img").length;
+        if(numUp >= defaults.fileNum){
+            $(this).parent().hide();
+        }
+
+        function validateUp(files){
+            let arrFiles = [];//替换的文件数组
+            for(let i = 0, file; file = files[i]; i++){
+                //获取文件上传的后缀名
+                let newStr = file.name.split("").reverse().join("");
+                if(newStr.split(".")[0] != null){
+                    let type = newStr.split(".")[0].split("").reverse().join("");
+                    if(jQuery.inArray(type, defaults.fileType) > -1){
+                        // 类型符合，可以上传
+                        if (file.size >= defaults.fileSize) {
+                            alert('您这个"'+ file.name +'"文件大小过大');
+                        } else {
+                            // 在这里需要判断当前所有文件中
+                            arrFiles.push(file);
+                        }
+                    }
+                }
+            }
+            return arrFiles;
+        }
+    });
+
+    
+    //点击上传视频
+    $(".file-video").change(function() {//存放视频的父亲元素
+        let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent; //获取的视频文件
+        let fileSize = 1024 * 1024 * 1024 * 2,windowURL = window.URL || window.webkitURL,videoURL = windowURL.createObjectURL(file);
+        if(file.size <= fileSize){
+            $('.up-video-btn').hide();
+            let v_box = $(`<div class="z-up videobox"><video src="${videoURL}" preload></video></div>`);
+            videoContainer.prepend(v_box);
+            // 删除
+            let $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                event.preventDefault();
+                event.stopPropagation();
+                delParent = $(this).parent();
+                console.log(delParent.parent());
+                delParent.parent().find(".up-btn").show();
+                delParent.remove();
+            });
+            $del.appendTo(v_box);
+            let video = $('.videobox').find('video')[0],can = document.createElement("canvas"),ctx = can.getContext('2d');
+
+            // 生成缩略图
+            setTimeout(function () {
+                can.width = video.videoWidth/2;
+                can.height = video.videoHeight/2;
+                ctx.drawImage(video, 0, 0, can.width, can.height);
+                $('.videobox').append(`<img src="${can.toDataURL("image/jpeg")}" class="fitimg">`);
+            },500);
+            video.remove();
+        } else {
+            alert('文件大小过大');
+        }
+    });
+
+    // 切换定制类型
     $('.typebox button').click(function(){
         if($(this).hasClass('item')) return false;
         $(this).addClass('item').siblings().removeClass('item');
     });
+
+    // 提交定制成功页面
+    $('.submit .btn').click(function(){
+        $('#custom-cont').remove();
+        customSuccess('../image/win.jpg','我们将在8小时内完成您的作品，请您耐心等待（特殊时间如节假日定制过多，也许会消耗一些时间。）','my_modu.html');
+    });
+
+});
 </script>
 </html>

@@ -58,25 +58,14 @@
             </div>
         </div>
     </div>
-
     <div class="flex center once" style="">
         <a href="javascript:;" class="flex center">立即开通</a>
     </div>
-
-
 </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript">
-    // 购买会员
-    $("a.discounts").click(function () {
-        $(".buy-hint").show().find(".content").addClass('trans');
-        $('.indate span').text('2018-04-08');
-    });
-    $(".mask").click(function () {
-        $(".buy-hint").hide();
-    });
     // 点击回到底部
     window.onload = function () {
         var h = $(".bjimg").height() - $(document).height() + $(".state").innerHeight(), opbox = $('.optionbox').height(), boxh;

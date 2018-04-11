@@ -13,7 +13,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 .owned .nav a.item{border-color:#5a93e9;}
 .owned .nav span{width:4.6rem;height:3.6rem;font-weight:bold;font-size:1.4rem;color:#ddd;}
 .owned .nav a.item span{color:#2d2d2d;}
-#banner .swiper-slide{padding:1rem 1rem 2rem;height:16rem;}
+#banner .swiper-slide{padding:1rem 1rem 2rem;height:16rem;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 #banner .swiper-slide img{box-shadow: 0 12px 20px 0 rgba(0,0,0,.1);border-radius:.8rem;}
 #banner .swiper-pagination-bullets{bottom:30px;}
 #banner .swiper-pagination-bullet{background:#fff;}
@@ -103,7 +103,8 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #my_modu .modu{margin-top:2rem;}
 #my_modu .poster .list-box .item:before{content:'';width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(0,0,0,.5);}
 #my_modu .poster .list-box .item .status{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;font-size:1rem;color:#fff;}
-#query{display: none;}
+/*帮助*/
+#assistance .imgbox{height:calc(100% - 5rem);}
 /**************************** 消息 ************************************/
 #infomation .info-list{padding:0 1rem;}
 #infomation .info-list .list{padding:1rem 0;border-bottom:1px solid #ddd;}
@@ -111,7 +112,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #infomation .info-list .list .top{margin-bottom:1rem;}
 #infomation .info-list .list .top .name{max-width:10rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
 #infomation .info-list .list .top .date{font-size:1.2rem;color:#bbb;}
-#infomation .info-list .content .imgbox{margin-bottom:1rem;}
+#infomation .info-list .content .imgbox{margin-bottom:1rem;max-height:24.6rem;overflow:hidden;}
 #infomation .info-list .content .imgbox img{display: inline-block;}
 /************************** 个人中心 **********************************/
 #personal .bj{position:relative;}
@@ -128,20 +129,25 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #about .a-head .brand .logo{width:6rem;height:6rem;}
 #about .a-head .brand .brand-name{font-size:1.4rem;}
 #about .a-head .text{padding:0 1rem 2rem;text-align:center;line-height:1.8rem;font-size:1.2rem;color:#737373;}
-#about .wechat{margin-top:1rem;background:#fff;padding:.6rem 1rem;}
-#about .wechat .icon{width:2rem;height:2rem;}
-#about .wechat .text{margin-left:.6rem;font-size:1.4rem;}
+#about .wechat{min-height: 20rem;}
+#about .wechat .wx{width:12rem;height:12rem;padding:.2rem;background:#fff;border-radius:.3rem;}
+#about .wechat .text{margin-top:.6rem;font-size:1.4rem;}
 #about .footer{margin:1rem 0;font-size:1.2rem;color:#737373;}
+/**************************** 联系客服 *********************************/
+#service{padding:1rem;}
+#service .label{margin-top:1rem;padding:1rem;background:#e5e5e5;border-radius:.4rem;font-size:1.2rem;}
+#service .label .icon{width:2.4rem;height:2.4rem;margin-right:1rem;}
+#service .text-cont{margin:2rem 1rem;line-height:2.4rem;font-size:1.2rem;color:#bbb;}
 /**************************** 定制视频 *********************************/
 #v-cont{margin:0 1rem;}
-#v-cont .name{margin:4rem 0 1rem 0;max-width:20rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
+#v-cont .name{margin:2rem 0 1rem 0;max-width:20rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
 #v-cont .v-vdieo{position:relative;padding:1rem;}
 #v-cont .v-vdieo .icon{width:4rem;height:4rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 #v-cont .depict{margin:1rem;font-size:1.2rem;}
+#v-cont .made-btn{margin:2rem 0;min-height:6rem;}
 #v-cont .made-btn .btn{width:12rem;height:2.6rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /**************************** 上传视频 *********************************/
 #video-up .upload{margin:1rem 1rem 0;}
-#video-up .upload .loading{background: rgba(0,0,0,.2)url(../image/loading.gif)no-repeat center;}
 #video-up .upload .c-text{margin:1rem 0;width:20rem;font-size:1rem;color:#bbb;}
 #video-up .submit .s-btn{width:18rem;height:2.6rem;background:#4384e6;margin:4rem 1rem 2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /****************************** PPT模板内容 *********************************/
@@ -155,31 +161,30 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #PPT-cont .brief .date span{font-size:1.2rem;color:#bbb;}
 #PPT-cont .p-btn a.btn{width:10rem;height:3.4rem;background:#e3e3e3;border-radius:.4rem;font-size:1.4rem;}
 /*************************** 定制PPT及海报模板 ****************************/
-#custom-modu .hint-t{padding:.4rem 0;font-size:1rem;color:#737373;}
+#custom-modu .hint-t{padding:.6rem 0;font-size:1.2rem;color:#737373;}
 #custom-modu .upload{margin:1rem 1rem 0;}
-.upload .z-up{width:6.5rem;height:6.5rem;border:2px solid #eee;position:relative;margin:0 1rem 1rem 0;}
+.upload .z-up,.upload .up-btn{width:6.5rem;height:6.5rem;border:2px solid #eee;position:relative;margin:0 1rem 1rem 0;}
 .upload .up-btn .file{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;}
 .upload .up-btn:before{content:'';width:24px;height:2px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .upload .up-btn:after{content:'';width:2px;height:24px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .upload .z-up .del{position: absolute;top:-.4rem;right:-.4rem;width:1rem;height:1rem;}
-
-
-
-
 .claimbox .claim{margin:1rem;background:#ededed;padding:.4rem 1rem;font-size:1.4rem;border-radius:.6rem;box-shadow:0 2px 10px 0 rgba(0,0,0,.2);}
-.claimbox .claim:first-child{height:10rem;}
-.claimbox .claim:last-child{height:7rem;}
+.claimbox .claim:nth-child(1){height:12rem;}
+.claimbox .claim:nth-child(2){height:8rem;}
+#custom-modu .warn{margin:2rem 0;font-size:1.2rem;color:#e51c23;}
 #custom-modu .submit{min-height:10rem;}
 #custom-modu .submit .btn{width:20rem;height:2.6rem;background:#4384e6;margin-bottom:2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /*定制成功界面*/
 #succeed .win{height:20rem;}
-#succeed .s-text{margin:2rem;line-height:2rem;font-size:1.2rem;}
-#succeed .backbox{margin-top:4rem;}
+#succeed .s-text{margin:1rem;line-height:2rem;font-size:1.2rem;}
+/*#succeed .backbox{margin-top:4rem;}*/
 #succeed .backbox a{width:12rem;height:2.8rem;background:#4384e6;margin-bottom:1rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /*************************** 海报模板内容 *******************************/
-#poster-cont .poster{margin:1rem 2.8rem;}
-#poster-cont .btn{margin:2rem;}
-#poster-cont .btn a{width:10rem;height:2.8rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#ffff;}
+#poster-cont .poster{margin:.5rem 2.8rem 0;}
+#poster-cont .poster .poster_img{width:100%;}
+#poster-cont .btn{margin:1rem;}
+#poster-cont .btn a{width:10rem;height:2.8rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
+#poster-cont .hidden{display:none;}
 #alert .content{padding:1rem;font-size:1.26rem;}
 #alert .content .text{width:100%;padding-bottom:1rem;color:#4384e6;}
 #alert .content .btns{color:#448043;}
@@ -244,7 +249,6 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #open .bjimg .option .list .cost span{font-size:1.2rem;}
 #open .once{padding: 1rem 0;width:100%; position: fixed;bottom:0rem;}
 #open .once a{width: 80%;height: 3.5rem;background: -webkit-linear-gradient(#ffc63f, #ff8c00);color:#fdebea;border-radius: 5rem;font-size: 1.8rem;}
-
 
 
 

@@ -97,14 +97,14 @@ function showAlert (title,text,btns,callback){
     var name = title != '' ? '<div class="title">' + title + '</div>' : '';
     var button = '';
     for(var h = 0;h < btns.length;h++){
-        var url = btns[h].u || '',w = 100 / btns.length;
+        var url = btns[h].u || 'javascript:;',w = 100 / btns.length;
         button += '<a href="'+url+'" class="btns" data-url="' + url + '" style="width:' + w + '%">' + btns[h].t + '</a>';
     }
     var template = '<div id="alert">' +
         '<div class="mask" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>' +
         '<div class="content">' +
         name +
-        '<div class="text">' + text + '</div>' +
+        '<div class="flex center text">' + text + '</div>' +
         '<div class="flex end button">' + button + '</div>' +
         '</div>' +
         '</div>';
@@ -321,18 +321,19 @@ function showCliper (id,cid,title,callback){
 
 /**
  * 定制成功界面
- * @param img 要插入的图片地址
+ * @param id   要插入的地方
+ * @param img  要插入的图片地址
  * @param text 需要填写的内容
  * @param modu 要查看的模板地址
  */
 function customSuccess(img,text,modu) {
-    const html = `<div id="succeed" class="flexitemv">
+    const html = `<div id="succeed" class="flexv wrap">
             <div class="flex center win"><img src="${img}" class="fitimg"></div>
-            <div class="flexitem center s-text">${text}</div>
+            <div class="flexitem center mainbox s-text">${text}</div>
             <div class="flexv center backbox">
                 <a href="${modu}" class="flex center check-btn">查看我的定制模板</a>
                 <a href="index.html" class="flex center check-btn">返回首页</a>
             </div>
         </div>`;
-    $('#custom-modu').append(html);
+    $('body').append(html);
 }

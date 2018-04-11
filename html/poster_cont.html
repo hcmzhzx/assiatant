@@ -11,29 +11,66 @@
 <body>
 <div id="poster-cont" class="flexv wrap">
     <!--海报内容-->
-    <div class="flexitem center poster">
-        <img src="../image/poster.jpg" class="fitimg">
+    <div class="flexitem poster">
+        <img src="../image/750-1334.jpg" class="poster_img">
     </div>
     <div class="around btn">
         <a href="javascript:;" class="flex center use">一键使用</a>
         <a href="custom-modu.html" class="flex center custom">定制模板</a>
     </div>
+    <!--用户信息-->
+    <img src="../image/user.jpg" class="hidden user">
+    <img src="../image/qrcode.png" class="hidden qrcode">
 </div>
 </body>
 <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript">
-    // 一键使用未完善信息提示
-    /*$('.btn .use').click(function(){
-        showAlert('','为了您的账户安全，请先完善个人信息。',[{t:'好的，现在就去完善',u:'basic.html'}]);
-    });*/
+$(function(){
+    var Img = document.querySelector(".poster_img"),
+        user = document.querySelector(".user"),
+        qrcode = document.querySelector(".qrcode"),
+        brand = "我D助手",
+        name = '小胡',
+        phone = 13688888888;
 
-    //替换成功
+    // 绘制信息到图片上
+    function poster(src,brand,name,phone,qrcode) {
+        var can = document.createElement("canvas"),ctx = can.getContext("2d");
+        var imgs = new Image();
+        imgs.src = src;
+        imgs.onload = function(){
+            //设置画布尺寸
+            can.width = imgs.width;
+            can.height = imgs.height;
+            //绘制背景图
+            ctx.drawImage(imgs, 0, 0);
+            ctx.fillStyle = 'rgba(0,0,0,.6)';
+            ctx.fillRect(0, can.height-180, can.width, can.height-180);
+            ctx.drawImage(qrcode, can.width-155, can.height-155, 138, 138);
+            //绘制用户头像
+            ctx.save();
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 2;
+            ctx.arc(85, can.height-85, 70, 0, Math.PI*2);
+            ctx.stroke();
+            ctx.clip();
+            ctx.drawImage(user, 0, 0, user.width, user.height, 16, can.height-152, 138, 138);
+            ctx.restore();
+            //绘制信息
+            ctx.font = '32px Arial';
+            ctx.fillStyle = '#fff';
+            ctx.fillText(brand + name, 176, can.height-100);
+            ctx.fillText(phone, 176, can.height-40);
+            Img.src = can.toDataURL('image/jpeg');
+        }
+    }
+
     $('.btn .use').click(function(){
-        showAlert('','恭喜你，已替换成功！',[{t:'知道了'}]);
+        poster(Img.src,brand,name,phone,qrcode); // 调用绘制图片
+        showAlert('','恭喜你，已替换成功！',[{t:''}]); //替换成功
+        //showAlert('','为了您的账户安全，请先完善个人信息。',[{t:'好的，现在就去完善',u:'basic.html'}]); // 一键使用未完善信息提示
     });
-
-
-
+});
 </script>
 </html>

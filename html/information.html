@@ -19,6 +19,18 @@
                         <span class="flexv center name">滴滴助手-小D</span>
                         <em class="flex center date">2018-04-06</em>
                     </div>
+                    <div class="imgbox">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                        <img src="../image/list.jpg">
+                    </div>
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
@@ -45,7 +57,6 @@
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
-
             <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
@@ -62,7 +73,6 @@
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
-
             <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
@@ -73,7 +83,6 @@
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
-
             <div class="flex list">
                 <div class="flex centerh user-img"><img src="https://pro.modao.cc/uploads3/images/1861/18618308/raw_1522911133.png" class="fitimg"></div>
                 <div class="flexitemv content">
@@ -87,7 +96,6 @@
                     <div class="flexv text">您还没找到学习位置？也可以打开课程商城首页，您缩购买的课程点开也可以学习。</div>
                 </div>
             </div>
-
         </div>
     </div>
     <!--底部导航-->
@@ -119,6 +127,7 @@
 <script src="../js/icon.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript">
+$(function(){
     // 控制图片大小
     $('.imgbox').each(function(){
         if($(this).children('img').length==1){
@@ -128,10 +137,8 @@
         }
     });
 
-
-
-
     // 分页(放在最后执行)
     ajaxPages(window.location.href,'.mainbox','.info-list');
+});
 </script>
 </html>

@@ -110,7 +110,7 @@
     <div class="flexitemv mainbox member">
         <div class="between head">
             <div class="text">您当前可用的定制次数</div>
-            <a href="javascript:;" class="flex center query"><svg class="zs" aria-hidden="true"><use xlink:href="#WH"></use></svg></a>
+            <a href="assistance.html" class="flex center query"><svg class="zs" aria-hidden="true"><use xlink:href="#WH"></use></svg></a>
         </div>
         <div class="around count">
             <div class="flexv center poster item">
@@ -202,9 +202,6 @@
         </div>
         </div>
     </div>
-    <div id="query" class="flexitem">
-        <img src="../image/help.jpg" class="fitimg">
-    </div>
     <!--底部导航-->
     <footer class="around tabbars">
         <a href="index.html" class="flexv center item icon">
@@ -238,13 +235,6 @@
     $(".count>div").click(function () {
         if($(this).hasClass('item')) return false;
         $(this).addClass('item').siblings().removeClass('item');
-    });
-
-    // 帮助
-    $('.query').click(function () {
-       $('.initialize').hide();
-       $('.member').hide();
-       $('#query').show();
     });
 
     // 分页
