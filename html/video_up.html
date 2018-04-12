@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<form id="video-up" class="flexitemv wrap">
+<form id="video-up" class="flexitemv wrap" enctype="multipart/form-data">
     <div class="flexitemv custombox">
         <div class="around upload">
             <div class="up-btn z-up">
@@ -35,10 +35,10 @@
         /*点击的文本框*/
         $(".file").change(function() {//存放视频的父亲元素
             let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file').files[0],delParent; //获取的视频文件
-            let fileSize = 1024 * 1024 * 1024 * 2,windowURL = window.URL || window.webkitURL,videoURL = windowURL.createObjectURL(file);
+            let fileSize = 1024 * 1024 * 1024 * 2;
             if(file.size <= fileSize){
                 $('.z-up').hide();
-                let v_box = $(`<div class="z-up videobox"><video src="${videoURL}" preload></video></div>`);
+                let v_box = $(`<div class="z-up videobox"><img src="${'../image/user.jpg'}" class="fitimg"></div>`);
                 videoContainer.prepend(v_box);
                 // 删除
                 let $del = $('<i class="flex center del close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
@@ -49,22 +49,6 @@
                     delParent.remove();
                 });
                 $del.appendTo(v_box);
-                let video = $('.videobox').find('video')[0],can = document.createElement("canvas"),ctx = can.getContext('2d');
-
-                // 生成缩略图
-                setTimeout(function () {
-                    can.width = video.videoWidth/2;
-                    can.height = video.videoHeight/2;
-                    ctx.drawImage(video, 0, 0, can.width, can.height);
-                    $('.videobox').append(`<img src="${can.toDataURL("image/jpeg")}" class="fitimg">`);
-                },500);
-                video.remove();
-                let time = setInterval(function () {
-                    if(videoContainer.find('img')){
-                        v_box.removeClass('loading');
-                        clearInterval(time);
-                    }
-                },200);
             } else {
                 alert('文件大小过大');
             }

@@ -328,9 +328,9 @@ function showCliper (id,cid,title,callback){
  */
 function customSuccess(img,text,modu) {
     const html = `<div id="succeed" class="flexv wrap">
-            <div class="flex center win"><img src="${img}" class="fitimg"></div>
-            <div class="flexitem center mainbox s-text">${text}</div>
-            <div class="flexv center backbox">
+            <div class="win"><img src="${img}" class="fitimg"></div>
+            <div class="s-text">${text}</div>
+            <div class="flexitemv endvc backbox">
                 <a href="${modu}" class="flex center check-btn">查看我的定制模板</a>
                 <a href="index.html" class="flex center check-btn">返回首页</a>
             </div>
