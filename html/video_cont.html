@@ -12,10 +12,10 @@
 <div id="v-cont" class="flexv wrap">
     <div id="preview" class="flexitemv center">
         <div class="name">视频名称</div>
-        <div class="v-vdieo">
-            <!--<video poster="../image/ppt.png" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
-            <!--<video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
-            <video poster="../image/v_bj.png" src="http://file.ih5.cn/v3/files/1630112/20170930/ef0e798b.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>
+        <div class="flex center v-vdieo">
+            <video poster="../image/ppt.png" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>
+            <!--<video poster="../image/lz-video.jpg" src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
+            <!--<video poster="../image/v_bj.png" src="http://file.ih5.cn/v3/files/1630112/20170930/ef0e798b.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
             <i class="flex center icon"><svg class="zs" aria-hidden><use xlink:href="#SP"></use></svg></i>
         </div>
         <div class="depict">是个黑时代光华煽风点火地方噶而过十分噶地方干哈的各环节sad搞活动覆盖撒地方噶地方官</div>
@@ -29,11 +29,13 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.onload = function () {
-    //判断是横竖
+    //判断视频横竖
     if($('video')[0].videoWidth > $('video')[0].videoHeight){
         $('.v-vdieo').height(16+'rem');
+        $('video').width(100+'%');
     } else {
         $('.v-vdieo').height(30+'rem');
+        $('video').height(100+'%');
     }
 
     // 播放
