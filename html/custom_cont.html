@@ -48,16 +48,6 @@
         <p class="flex c-tit">填写定制模板名称</p>
         <input type="text" class="flexv" placeholder="请输入模板名称">
     </div>
-    <!--选择定制类型-->
-    <div class="felxv up-type area">
-        <p class="flex c-tit">选择定制类型</p>
-        <div class="around typebox">
-            <button type="button" class="item">海报</button>
-            <button type="button">H5</button>
-            <button type="button">PPT</button>
-            <button type="button">小视频</button>
-        </div>
-    </div>
     <!--提交按钮-->
     <div class="flex center submit">
         <a href="javascript:;" class="flex center btn">确认提交</a>
@@ -78,7 +68,6 @@ $(function () {
         };
         let file = document.querySelector('.file-img');
         let imgContainer = $(this).parents(".upload"); //存放图片的父亲元素
-        console.log(imgContainer);
         let fileList = file.files; //获取的图片文件
         let imgArr = [];
         //遍历得到的图片文件
@@ -169,12 +158,6 @@ $(function () {
         } else {
             alert('文件大小过大');
         }
-    });
-
-    // 切换定制类型
-    $('.typebox button').click(function(){
-        if($(this).hasClass('item')) return false;
-        $(this).addClass('item').siblings().removeClass('item');
     });
 
     // 提交定制成功页面

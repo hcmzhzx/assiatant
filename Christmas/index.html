@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>圣诞节</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+<div class="swiper-container">
+	<a href="javascript:;" class="play_yinfu spin">
+        <div class="rotate"></div>
+		<audio autoplay loop="loop">
+			<source src="music/music.mp3" type="audio/mpeg"/>
+			<source src="music/music.ogg" type="audio/ogg"/>
+		</audio>
+	</a>
+	
+	<div class="swiper-wrapper">
+		<!-------------slide1----------------->
+		<section class="swiper-slide slide1">
+			<img src="image/page_1_shu.png" class="ani resize_1" swiper-animate-effect="zoomInUp" swiper-animate-duration="1s" swiper-animate-delay="1.5s">
+			<img src="image/page_1_text-1.png" class="ani resize_2_1" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+			<img src="image/page_1_text-2.png" class="ani resize_2_2" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+		</section>
+		<!---------------slide2-------------->
+		<section class="swiper-slide slide2">
+			<img src="image/page_2_shu.png" class="ani resize_1" swiper-animate-effect="rollIn" swiper-animate-duration="1s" swiper-animate-delay="1s">
+			<img src="image/page_2_text-1.png" class="ani resize_2_1" swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0.2s">
+			<img src="image/page_2_text-2.png" class="ani resize_2_2" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="2s">
+		</section>
+		<!---------------slide3-------------->
+		<section class="swiper-slide slide3">
+			<img src="image/page_3_shu.png" class="ani resize_1" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.2s">
+			<img src="image/page_3_text-1.png" class="ani resize_2_1" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="2s" swiper-animate-delay="1s">
+			<img src="image/page_3_text-2.png" class="ani resize_2_2" swiper-animate-effect="rotateInUpLeft" swiper-animate-duration="2s" swiper-animate-delay="2s">
+		</section>
+		<!---------------slide4-------------->
+		<section class="swiper-slide slide4">
+			<img src="image/page_4_ren.png" class="ani resize_1" swiper-animate-effect="puffIn" swiper-animate-duration="1s" swiper-animate-delay="0.2s">
+			<img src="image/page_4_text-1.png" class="ani resize_2_1" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="1s">
+			<img src="image/page_4_text-2.png" class="ani resize_2_2" swiper-animate-effect="bounceInUp" swiper-animate-duration="1.5s" swiper-animate-delay="2s">
+			<img src="image/page_4_text-3.png" class="ani resize_2_3" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="3s">
+        </section>
+	</div>
+	<img src="image/tip.png" style="width:20px;height:15px; top:460px; left:150px;" id="array" class="resize">
+</div>
+</body>
+<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script type="text/javascript">
+    let scaleW = window.innerWidth / 320, scaleH = window.innerHeight / 480, resizes = document.querySelectorAll('.resize');
+    for (var j = 0; j < resizes.length; j++) {
+        resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
+        resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
+        resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
+        resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
+    }
+
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        mousewheelControl: true,
+		loop:true,
+        onInit: function (swiper) {
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function (swiper) {
+            swiperAnimate(swiper);
+        }
+    });
+	
+//	控制音乐音频
+	var audios = document.querySelector("audio"), yinfu = document.querySelector(".play_yinfu");
+    yinfu.onclick = function () {
+        if(audios.paused){
+            audios.play();
+            yinfu.setAttribute('class','play_yinfu spin');
+		} else{
+            audios.pause();
+            yinfu.setAttribute('class','');
+            document.querySelector('.swiper-container>a').setAttribute('class','play_yinfu');
+		}
+    }
+	
+</script>
+</html>

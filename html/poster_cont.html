@@ -33,7 +33,6 @@ $(function(){
         brand = "我D助手",
         name = '小胡',
         phone = 13688888888;
-
     // 绘制信息到图片上
     function poster(src,brand,name,phone,qrcode) {
         var can = document.createElement("canvas"), ctx = can.getContext("2d");
@@ -65,11 +64,11 @@ $(function(){
             Img.src = can.toDataURL('image/jpeg');
         }
     }
+    poster(Img.src,brand,name,phone,qrcode); // 调用绘制图片
 
     var age = 1;
     $('.btn .use').click(function(){
         if(age == 1){
-            poster(Img.src,brand,name,phone,qrcode); // 调用绘制图片
             showAlert('','恭喜你，已替换成功！</br>长按图片保存到手机。',[{t:''}]); //替换成功
             age ++;
         } else {

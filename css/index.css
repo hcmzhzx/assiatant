@@ -37,7 +37,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 .video .listbox .lists .cont .base{padding:0.2rem 0;color:#969696;font-size: 1.2rem;}
 .video .listbox .lists .cont .base span{margin-right:1rem;}
 .video .listbox .lists .cont .base span .icon{width:1.44rem;height:1.44rem;margin-right:.2rem;}
-.bottom{padding:1rem 0 2rem;background:#f5f5f5;}
+.bottom{padding:1rem 0;background:#f5f5f5;}
 .bottom p{padding:1rem 0;}
 .bottom button{width:8rem;height:2rem;border-radius:.4rem;border:1px solid #649aeb;color:#649aeb;}
 /****************************** 海报 ***********************************/
@@ -71,8 +71,10 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 /**************************** 定制 ***********************************/
 #custom .head{padding:1rem 0;font-size:1.6rem;}
 #custom #banner{background:#ddd;}
-#custom .text{margin:2rem;font-size:1.4rem;color:#707070;}
-#custom a.btn{margin:2rem auto;width:20rem;height:3rem;border-radius:2rem;background:#4384e6;font-size:1.4rem;color:#fff;}
+#custom .text{margin:1rem;font-size:1.2rem;color:#707070;}
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+#custom .area .c-tit{padding:1rem 0;font-weight: bold;font-size: 1.2rem;color: #666;}
+#custom .area .typebox button{width:5rem;height:5rem;border-radius:50%;overflow:hidden;background:#4384e6;font-size:1.2rem;color:#fff;box-shadow:0 2px 12px 0 #99bef4;}
 /************************** 定制内容提交 ******************************/
 #custom-cont{padding:0 1rem;}
 #custom-cont input,#custom-cont textarea{background:#ededed;padding:1rem;border-radius:.4rem;font-size:1.2rem;}
@@ -82,9 +84,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #custom-cont .up-img,#custom-cont .up-video{margin-bottom:0;}
 #custom-cont .up-text .claim{height:14rem;}
 #custom-cont .up-ask .claim{height:10rem;}
-#custom-cont .up-type .typebox button{width:5rem;height:2rem;border:1px solid #bbb;border-radius:.4rem;font-size:1rem;}
-#custom-cont .up-type .typebox button.item{background:#4384e6;color:#fff;}
-#custom-cont .submit .btn{margin:4rem;width:18rem;height:3rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
+#custom-cont .submit .btn{margin:2rem;width:18rem;height:3rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /************************* 我的模板 **********************************/
 #my_modu .open-member{padding:2rem 0;background:#f5f5f5;}
 #my_modu .open-member p{margin:1rem 0;font-size:1.2rem;}
@@ -100,15 +100,12 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #my_modu .count .item{border-bottom-color:#4384e6;}
 #my_modu .count .item .number{color:#000;}
 #my_modu .content-tab .modu{margin-top:1rem;display:none;}
-
 #my_modu .content-tab .modu a .img{position:relative;}
 #my_modu .content-tab .poster .list .img{height:12rem;}
 #my_modu .content-tab .H5-anime .list .img{height:16rem;}
 #my_modu .content-tab .PPT .list .img{height:13.8rem;}
-
 #my_modu .modu a .img.item:before,#my_modu .video .img.item:before{content:'';width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(0,0,0,.5);}
 #my_modu .modu a .img.item .status,#my_modu .video .img.item .status{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;font-size:1rem;color:#fff;}
-
 /*帮助*/
 #assistance .imgbox{height:calc(100% - 5rem);}
 #assistance .imgbox img{border-radius:unset;}
@@ -148,7 +145,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 /**************************** 定制视频 *********************************/
 #v-cont{margin:0 1rem;}
 #v-cont .name{margin:2rem 0 1rem 0;max-width:20rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
-#v-cont .v-vdieo{position:relative;padding:1rem;}
+#v-cont .v-vdieo{position:relative;}
 #v-cont .v-vdieo .icon{width:4rem;height:4rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 #v-cont .depict{margin:1rem;font-size:1.2rem;}
 #v-cont .made-btn{margin:2rem 0;min-height:6rem;}
@@ -157,6 +154,10 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #video-up .upload{margin:1rem 1rem 0;}
 #video-up .upload .c-text{margin:1rem 0;width:20rem;font-size:1rem;color:#bbb;}
 #video-up .submit .s-btn{width:18rem;height:2.6rem;background:#4384e6;margin:4rem 1rem 2rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
+/****************************** H5模板内容 *********************************/
+#H5-cont .distrcit{margin:0 1rem;}
+#H5-cont .btn{margin:1rem 0;}
+#H5-cont .btn a{width:10rem;height:2.8rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /****************************** PPT模板内容 *********************************/
 #PPT-cont .head-t{margin:1rem 0;font-size:1.4rem;}
 #PPT-cont .content{height:14rem;}
@@ -166,6 +167,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #PPT-cont .brief .mode .text{font-size:1.2rem;color:#bbb;overflow:hidden;-webkit-line-clamp:4;}
 #PPT-cont .brief .label span{display:inline-block;border:1px solid #bbb;margin-right:.6rem;padding:.1rem .8rem;border-radius:.2rem;}
 #PPT-cont .brief .date span{font-size:1.2rem;color:#bbb;}
+#PPT-cont .p-btn{min-height:6rem;}
 #PPT-cont .p-btn a.btn{width:10rem;height:3.4rem;background:#e3e3e3;border-radius:.4rem;font-size:1.4rem;}
 /*************************** 定制PPT及海报模板 ****************************/
 #custom-modu .hint-t{padding:.6rem 0;font-size:1.2rem;color:#737373;}
@@ -256,7 +258,12 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #open .bjimg .option .list .cost span{font-size:1.2rem;}
 #open .once{padding: 1rem 0;width:100%; position: fixed;bottom:0rem;}
 #open .once a{width: 80%;height: 3.5rem;background: -webkit-linear-gradient(#ffc63f, #ff8c00);color:#fdebea;border-radius: 5rem;font-size: 1.8rem;}
-
+/************************ 定制成功详细 *********************************/
+#succeed .poster{margin:0 2.8rem;}
+#succeed .bottom{background:#fff;}
+#succeed .bottom p{font-size:1.2rem;color:#f00;}
+#succeed .bottom .btn{width:100%;padding:0 2rem;}
+#succeed .bottom .btn a{width:12rem;height:3rem;border-radius:4rem;background:#4384e6;font-size:1.2rem;color:#fff;}
 
 
 

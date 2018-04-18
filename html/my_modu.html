@@ -78,7 +78,7 @@
             <!--H5-->
             <div class="H5-anime modu">
                 <div class="br list-box">
-                    <a href="H5-cont.html" class="flexv center list">
+                    <a href="H5_cont.html" class="flexv center list">
                         <span class="flex img item">
                             <img src="../image/list.jpg" class="fitimg">
                             <span class="flex center status">制作中...</span>
@@ -188,26 +188,6 @@
         $(this).addClass('item').siblings().removeClass('item');
         $('.content-tab>.modu').eq($(this).index()).show().siblings().hide();
     });
-
-
-
-    var arr1 = [{name:'wwb',age:10},{name:'ssa',age:20},{name:'hong',age:15},{name:'ing',age:15},{name:'xxx',age:15}];
-    var arr2 = [{name:'ssa',age:20},{name:'hong',age:15},{name:'ing',age:15},{name:'wwb',age:10}];
-    var res = [];
-    for(var i=0;i<arr1.length;i++){
-        var flag = false;
-        for(var j=0;j<arr2.length;j++){
-            if(arr1[i].name === arr2[j].name){
-                flag = true;
-            }
-        }
-        if(!flag){
-            res.push(arr1[i]);
-        }
-    }
-    console.log(res,'res')
-
-
 
 
     // 分页

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>定制成功</title>
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="succeed" class="flexv wrap">
+    <div class="flexitem">
+        <!--海报-->
+        <!--<div class="poster">
+            <img src="../image/750-1334.jpg" class="fitimg">
+        </div>-->
+
+        <!--PPT-->
+        <!--<div class="PPT">
+            <div class="flex swiper-container">
+                <div class="swiper-wrapper">
+                    <a href="javascript:;" class="swiper-slide">
+                        <img class="fitimg" src="../image/PPT-s.jpg"/>
+                    </a>
+                    <a href="javascript:;" class="swiper-slide">
+                        <img class="fitimg" src="../image/PPT-s.jpg"/>
+                    </a>
+                    <a href="javascript:;" class="swiper-slide">
+                        <img class="fitimg" src="../image/PPT-s.jpg"/>
+                    </a>
+                </div>
+            </div>
+        </div>-->
+
+        <!--视频-->
+    <div class="flexitemv centerv video" id="v-cont">
+        <div class="flexv name">视频名称</div>
+        <div class="flex center v-vdieo">
+            <video poster="../image/lz-video.jpg" src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>
+            <!--<video poster="../image/v_bj.png" src="http://file.ih5.cn/v3/files/1630112/20170930/ef0e798b.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen preload></video>-->
+            <i class="flex center icon"><svg class="zs" aria-hidden><use xlink:href="#SP"></use></svg></i>
+        </div>
+    </div>
+    </div>
+    <div class="flexv center bottom">
+        <p>※ 如不满意请在24小时内申请修改，预期将无法修改。</p>
+        <div class="between btn">
+            <a href="javascript:;" class="flex center">满意，立即分享</a>
+            <a href="javascript:;" class="flex center">不满意，申请修改</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/icon.js"></script>
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    // PPT
+    new Swiper ('.swiper-container', {
+        loop:false,
+        autoplay:false,
+        autoplayDisableOnInteraction:false
+    });
+
+    // video
+    //判断视频横竖
+    if($('video')[0].videoWidth > $('video')[0].videoHeight){
+        $('.v-vdieo').height(18+'rem');
+        $('video').width(100+'%');
+    } else {
+        $('.v-vdieo').height(36+'rem');
+        $('video').height(100+'%');
+    }
+
+    // 播放
+    $('.v-vdieo').click(function(){
+        let x = $(this).find('video')[0].paused;
+        if(x){
+            $(this).children('video')[0].play();
+            $('.icon').hide();
+        }else{
+            $(this).children('video')[0].pause();
+            $('.icon').show();
+        }
+        $('video').bind('error ended',function () {
+            $('.icon').show();
+            console.log('结束');
+        });
+    });
+});
+</script>
+</html>

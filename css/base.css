@@ -6,12 +6,12 @@
 @media screen and (min-width: 768px){ html,body{font-size: 24px;} }
 @media screen and (min-width: 960px){ html,body{font-size: 30px;} }
 @media screen and (min-width: 1024px){ html,body{font-size: 32px;} }
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-touch-callout:none;-webkit-text-size-adjust:100% !important;}
 html,body,div,ul,ol,li,dl,dt,dd,form,input,textarea,table,h1,h2,h3,h4,p,span,a,em,i,img{font-style:normal;}
-html,body{height:100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-family: "Roboto", "Open Sans", "PingFang", "PingFang SC", "PingFang HK", "PingFang TC", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue",'\5FAE\8F6F\96C5\9ED1',Arial,'\9ED1\4F53','\5B8B\4F53', sans-serif;}
+html,body{height:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family: "Roboto", "Open Sans", "PingFang", "PingFang SC", "PingFang HK", "PingFang TC", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue",'\5FAE\8F6F\96C5\9ED1',Arial,'\9ED1\4F53','\5B8B\4F53', sans-serif;}
 iframe,a,img{border:none;}
 img{display:block;}
-/*video{width:10height:100%;object-fit:fill}*/
+video{object-fit:fill}
 a,a:hover,a:visited,a:active{text-decoration:none;color:inherit;/*-webkit-tap-highlight-color:rgba(0, 0, 0, 0);*/}
 ol,ul{list-style-type:none;}
 ul li, ol li{box-sizing: border-box;list-style:none;}
@@ -31,11 +31,11 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appear
 .center{-webkit-box-align: center; -webkit-box-pack: center;}
 .endh{-webkit-box-pack: end;}
 .endv{-webkit-box-align: end;}
-.endc{-webkit-box-align: end; -webkit-box-pack: center;}
-.endvc{-webkit-box-align: baseline;-webkit-box-pack: end;}
+.endhc{-webkit-box-align: end; -webkit-box-pack: center;}  /*水平结构居中底部,垂直结构居中靠右*/
+.endvc{-webkit-box-align: baseline;-webkit-box-pack: end;} /*水平结构右上角,垂直结构居中底部*/
 .end{-webkit-box-align: end; -webkit-box-pack: end;}
 .between{display:flex;justify-content:space-between;align-items:center;} /*两端对齐*/
-.around{display:flex;justify-content:space-around;align-items:center;}  /*等间距*/
+.around{display:flex;justify-content:space-around;align-items:center;}   /*等间距*/
 .br{display: flex;flex-wrap:wrap;}  /*换行*/
 .wrap{height:100%;}
 .fitimg{width:100%;height:100%;border-radius:.3rem;}

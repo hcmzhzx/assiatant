@@ -32,7 +32,7 @@
             <div class="between item phone">
                 <span class="flex centerv">手机号</span>
                 <div class="flex centerv right">
-                    <input type="tel" class="flex center userimg" name="phone" data-rule="m" data-errmsg="手机格式错误" placeholder="请填写手机号" oninput="if(value.length>11)value=value.slice(0,11)">
+                    <input type="tel" class="flex center userimg" name="phone" data-rule="m" data-errmsg="手机格式错误" placeholder="请填写手机号" maxlength="11">
                     <i class="flex center icon"><svg class="zs" aria-hidden="true"><use xlink:href="#right"></use></svg></i>
                 </div>
             </div>
@@ -52,7 +52,6 @@
                     <input id="sel_city" name="city" class="flex center userimg" type="text" readonly="readonly" placeholder="请选择" unselectable="on" onfocus="this.blur()">
                     <i class="flex center icon"><svg class="zs" aria-hidden="true"><use xlink:href="#right"></use></svg></i>
                 </div>
-
             </div>
         </div>
 
@@ -207,7 +206,5 @@
             });
         });
     });
-
-
 </script>
 </html>
