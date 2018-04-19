@@ -1,10 +1,11 @@
+@import url("https://at.alicdn.com/t/font_615981_ccv3jnzosh7rdx6r.css");
 body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidden;-webkit-text-stroke-width: 0;}
 /***************************** 底部栏 ***********************************/
 .tabbars{height:5rem;background:#fff;position:relative;z-index:1;}
-.tabbars a.item i.icon{width:2.4rem;height:3rem;}
+.tabbars a.item i.zs{width:2.4rem;height:3rem;font-size:2.4rem;color:#bbb;}
 .tabbars a.item span{font-size:1rem;}
 .tabbars a.item i.tz{position:relative;}
-.tabbars a.item i.tz:before{content: '';position: absolute;top:.4rem;right:0;width:.8rem;height:.8rem;border-radius:50%; background:#f00;}
+.tabbars a.item i.tz:after{content: '';position: absolute;top:.4rem;right:0;width:.8rem;height:.8rem;border-radius:50%; background:#f00;}
 /****************************** 首页 ************************************/
 .owned .nav{overflow-x: auto;}
 .owned .nav a{border-bottom:2px solid transparent;}
@@ -72,9 +73,8 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #custom .head{padding:1rem 0;font-size:1.6rem;}
 #custom #banner{background:#ddd;}
 #custom .text{margin:1rem;font-size:1.2rem;color:#707070;}
-/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 #custom .area .c-tit{padding:1rem 0;font-weight: bold;font-size: 1.2rem;color: #666;}
-#custom .area .typebox button{width:5rem;height:5rem;border-radius:50%;overflow:hidden;background:#4384e6;font-size:1.2rem;color:#fff;box-shadow:0 2px 12px 0 #99bef4;}
+#custom .area .typebox a{width:5rem;height:5rem;border-radius:50%;overflow:hidden;background:#4384e6;font-size:1.2rem;color:#fff;box-shadow:0 2px 12px 0 #99bef4;}
 /************************** 定制内容提交 ******************************/
 #custom-cont{padding:0 1rem;}
 #custom-cont input,#custom-cont textarea{background:#ededed;padding:1rem;border-radius:.4rem;font-size:1.2rem;}
@@ -172,11 +172,11 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 /*************************** 定制PPT及海报模板 ****************************/
 #custom-modu .hint-t{padding:.6rem 0;font-size:1.2rem;color:#737373;}
 #custom-modu .upload{margin:1rem 1rem 0;}
-.upload .z-up,.upload .up-btn{width:6.5rem;height:6.5rem;border:2px solid #eee;position:relative;margin:0 .4rem .4rem 0;}
+.upload .z-up,.upload .up-btn{width:7rem;height:7rem;border:2px solid #eee;position:relative;margin:0 .4rem .4rem 0;}
 .upload .up-btn .file{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;}
 .upload .up-btn:before{content:'';width:24px;height:2px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .upload .up-btn:after{content:'';width:2px;height:24px;background:#4384e6;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-.upload .z-up .del{position: absolute;top:-.4rem;right:-.4rem;width:1rem;height:1rem;}
+.upload .z-up .close-upimg{position: absolute;top:-.4rem;right:-.4rem;width:1rem;height:1rem;}
 .claimbox .claim{margin:1rem;background:#ededed;padding:.4rem 1rem;font-size:1.4rem;border-radius:.6rem;box-shadow:0 2px 10px 0 rgba(0,0,0,.2);}
 .claimbox .claim:nth-child(1){height:12rem;}
 .claimbox .claim:nth-child(2){height:8rem;}

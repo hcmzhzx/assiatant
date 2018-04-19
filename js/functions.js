@@ -318,7 +318,6 @@ function showCliper (id,cid,title,callback){
     });
 }
 
-
 /**
  * 定制成功界面
  * @param id   要插入的地方
