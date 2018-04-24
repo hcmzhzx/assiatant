@@ -146,7 +146,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #v-cont{margin:0 1rem;}
 #v-cont .name{margin:2rem 0 1rem 0;max-width:20rem;font-size:1.4rem;overflow:hidden;-webkit-line-clamp:1;}
 #v-cont .v-vdieo{position:relative;}
-#v-cont .v-vdieo .icon{width:4rem;height:4rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+#v-cont .v-vdieo .icon{width:6rem;height:6rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 #v-cont .depict{margin:1rem;font-size:1.2rem;}
 #v-cont .made-btn{margin:2rem 0;min-height:6rem;}
 #v-cont .made-btn .btn{width:12rem;height:2.6rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
@@ -189,7 +189,7 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 /*#succeed .backbox{margin-top:4rem;}*/
 #succeed .backbox a{width:12rem;height:2.8rem;background:#4384e6;margin-bottom:1rem;border-radius:2rem;font-size:1.2rem;color:#fff;}
 /*************************** 海报模板内容 *******************************/
-#poster-cont .poster{margin:0rem 2.8rem 0;}
+#poster-cont .poster{margin:0rem 2.8rem;}
 #poster-cont .poster .poster_img{width:100%;}
 #poster-cont .btn{margin:1rem 0;}
 #poster-cont .btn a{width:10rem;height:2.8rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
@@ -202,14 +202,14 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #basic .users{margin-bottom: 10px;padding: 0 10px;background: #fff;}
 #basic .user-info .item{margin: 6px 0;position: relative;}
 #basic .user-info .item span{height: 3rem; font-size: 1.4rem;color: #333;}
-#basic .user-info .item .right{color:#6e6e6e;font-size: 1.4rem;}
+#basic .user-info .item .rights{color:#6e6e6e;font-size: 1.4rem;}
 #basic .user-info .portrait{border-bottom: 1px solid #e9e9e9;}
 #basic .user-info .portrait span{width:5rem;height:5rem;}
-#basic .user-info .portrait .right{width: 6rem;height: 5rem;}
-#basic .user-info .portrait .right .userimg{width: 4.4rem;height:4.4rem;border-radius: 50%;overflow: hidden;}
+#basic .user-info .portrait .rights{width: 6rem;height: 5rem;}
+#basic .user-info .portrait .rights .userimg{width: 4.4rem;height:4.4rem;border-radius: 50%;overflow: hidden;}
 #basic .user-info .item .fileElem{opacity: 0;padding-right: 0;}
 #basic .user-info .item input{position:absolute;top:0;left:0;height:100%;width:100%;text-align: right;padding-right: 2rem;font-size: 1.4rem;}
-#basic .user-info .right i{width: 2rem;height: 2rem;font-size: 2rem;}
+#basic .user-info .rights i{width: 2rem;height: 2rem;font-size: 2rem;}
 #basic .user-info .name{border-bottom: 1px solid #e9e9e9;}
 #basic .user-info .brand{border-bottom: 1px solid #e9e9e9;}
 #basic .user-info .LOGO span{height:5rem;}
@@ -264,6 +264,11 @@ body{background:#fff;}.zs{width:100%;height:100%;fill:currentColor;overflow:hidd
 #succeed .bottom p{font-size:1.2rem;color:#f00;}
 #succeed .bottom .btn{width:100%;padding:0 2rem;}
 #succeed .bottom .btn a{width:12rem;height:3rem;border-radius:4rem;background:#4384e6;font-size:1.2rem;color:#fff;}
+/************************ 如何下载 *********************************/
+#down .guide{width:100%;}
+#down .bottom{background:#fff;}
+#down .bottom .btn{width:10rem;height:3rem;background:#4384e6;border-radius:2rem;font-size:1.2rem;color:#fff;}
+
 
 
 

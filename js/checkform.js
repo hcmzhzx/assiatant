@@ -12,7 +12,8 @@ var checkForm = function (config){
         "idcard": /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
         "card" : /^\d{16,20}$/,
         "pwd" : /^[^\s]{6,16}$/,
-        "domain" : /^[^\s]{3,6}$/
+        "domain" : /^[^\s]{3,6}$/,
+        "href" : /^[A-Za-z]+\d\.\w/
     };
     this.form = config.form || '#forms';
     this.btn = config.btn || '.submit';

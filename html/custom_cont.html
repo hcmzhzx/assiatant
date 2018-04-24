@@ -13,14 +13,14 @@
     <!--上传链接-->
     <div class="felxv up-href area">
         <p class="flex c-tit">上传样板链接</p>
-        <input type="text" name="href" data-rule="*" data-errmsg="请填写正确的链接" class="flexv" placeholder="将链接粘贴到框内">
+        <input type="text" name="href" data-rule="href" data-errmsg="请填写正确的链接" class="flexv" placeholder="将链接粘贴到框内">
     </div>
     <!--上传图片-->
     <div class="flexv up-img area">
         <p class="flex c-tit">上传图片素材</p>
         <div class="br upload">
             <div class="flex up-btn up-img-btn">
-                <input type="file" name="image" multiple class="file file-img" accept="image/jpg,image/png,image/jpeg">
+                <input type="file" name="image" multiple class="file file-img" accept="image/jpg,image/png">
             </div>
         </div>
     </div>
@@ -36,17 +36,17 @@
     <!--填写文案内容-->
     <div class="flexv up-text area">
         <p class="flex c-tit">填写文案内容</p>
-        <textarea class="flex claim" name="content" data-rule="cname" data-errmsg="内容不能为空" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>
+        <textarea class="flex claim" name="content" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>
     </div>
     <!--填写您的要求-->
     <div class="flexv up-ask area">
         <p class="flex c-tit">填写您的要求</p>
-        <textarea class="flex claim" name="claim" data-rule="cname" data-errmsg="内容不能为空" placeholder="写下您对模板需求，我们会尽量按照您的要求制作，如您不填写我们将依照自己的偏好为您设计。"></textarea>
+        <textarea class="flex claim" name="claim" placeholder="写下您对模板需求，我们会尽量按照您的要求制作，如您不填写我们将依照自己的偏好为您设计。"></textarea>
     </div>
     <!--填写定制模板名称-->
     <div class="felxv up-href area">
         <p class="flex c-tit">填写定制模板名称</p>
-        <input type="text" name="name" data-rule="cname" data-errmsg="内容不能为空" class="flexv" placeholder="请输入模板名称">
+        <input type="text" name="name" data-rule="cname" data-errmsg="模板名称不能为空" class="flexv" placeholder="请输入模板名称">
     </div>
     <!--提交按钮-->
     <div class="flex center submit">
@@ -134,7 +134,7 @@ $(function () {
         };
         let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent;
         if(file.size <= defaults.fileSize){
-            let type = file.name.split("").reverse().join("").split(".")[0].split("").reverse().join("");
+            let type = file.name.split("").join("").split(".")[1];
             if(jQuery.inArray(type, defaults.fileType) > -1){
                 $('.up-video-btn').hide();
                 let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
@@ -160,10 +160,7 @@ $(function () {
     var checker = new checkForm({
         form:'#custom-cont',
         btn:'.btn',
-        error:function(ele,err){
-            console.log(ele);
-            showMsg(err);
-            },
+        error:function(ele,err){showMsg(err);},
         complete:function (ele) {
             var post = $(ele).serializeArray();
             console.log(post);

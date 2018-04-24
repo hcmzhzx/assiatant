@@ -40,9 +40,9 @@
             };
             let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent;
             if(file.size <= defaults.fileSize){
-                let type = file.name.split("").reverse().join("").split(".")[0].split("").reverse().join("");
+                let type = file.name.split("").join("").split(".")[1];
                 if(jQuery.inArray(type, defaults.fileType) > -1){
-                    $('.up-video-btn').hide();
+                    $('.up-btn').hide();
                     let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
                     videoContainer.prepend(v_box);
                     // 删除
