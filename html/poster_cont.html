@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<div id="poster-cont" class="flexv wrap">
+<div id="poster-cont" class="flexv  wrap">
     <!--海报内容-->
-    <div class="flexitem poster">
-        <img src="../image/750-1334.jpg" class="poster_img">
+    <div class="flex poster">
+        <img src="../image/640-1137.jpg" class="poster_img">
     </div>
     <div class="around btn">
         <a href="javascript:;" class="flex center use">一键使用</a>
@@ -33,6 +33,7 @@ $(function(){
         brand = "我D助手",
         name = '小胡',
         phone = 13688888888;
+
     // 绘制信息到图片上
     function poster(src,brand,name,phone,qrcode) {
         var can = document.createElement("canvas"), ctx = can.getContext("2d");
@@ -45,29 +46,32 @@ $(function(){
             //绘制背景图
             ctx.drawImage(imgs, 0, 0);
             ctx.fillStyle = 'rgba(0,0,0,.6)';
-            ctx.fillRect(0, can.height - 180, can.width, can.height - 180);
-            ctx.drawImage(qrcode, can.width - 155, can.height - 155, 138, 138);
+            ctx.fillRect(0, can.height-180, can.width, can.height-180);
+            ctx.drawImage(qrcode, can.width-155, can.height-155, 138, 138);
             //绘制用户头像
             ctx.save();
             ctx.strokeStyle = '#ccc';
             ctx.lineWidth = 2;
-            ctx.arc(85, can.height - 85, 70, 0, Math.PI * 2);
+            ctx.arc(85, can.height-88, 70, 0, Math.PI*2);
             ctx.stroke();
             ctx.clip();
-            ctx.drawImage(user, 0, 0, user.width, user.height, 16, can.height - 152, 138, 138);
+            ctx.drawImage(user, 0, 0, user.width, user.height, 16, can.height-156, 140, 140);
             ctx.restore();
             //绘制信息
             ctx.font = '32px Arial';
             ctx.fillStyle = '#fff';
-            ctx.fillText(brand + name, 176, can.height - 100);
-            ctx.fillText(phone, 176, can.height - 40);
+            ctx.fillText(brand + name, 176, can.height-100);
+            ctx.fillText(phone, 176, can.height-40);
             Img.src = can.toDataURL('image/jpeg');
         }
     }
-    poster(Img.src,brand,name,phone,qrcode); // 调用绘制图片
+
+    // 调用绘制图片
+    poster(Img.src,brand,name,phone,qrcode);
 
     var age = 1;
     $('.btn .use').click(function(){
+        $('.btn').hide();
         if(age == 1){
             showAlert('','恭喜你，已替换成功！</br>长按图片保存到手机。',[{t:''}]); //替换成功
             age ++;

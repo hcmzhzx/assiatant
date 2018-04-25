@@ -20,7 +20,7 @@
         <p class="flex c-tit">上传图片素材</p>
         <div class="br upload">
             <div class="flex up-btn up-img-btn">
-                <input type="file" name="image" multiple class="file file-img" accept="image/jpg,image/png">
+                <input type="file" name="image" data-rule="blank" date-errmsg="图片不能为空" multiple class="file file-img" accept="image/jpg,image/png">
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <p class="flex c-tit">上传视频素材</p>
         <div class="upload">
             <div class="flex up-btn up-video-btn">
-                <input type="file" name="video" data-rule="*" date-errmsg="视频不能为空" class="file file-video" accept="video/*/">
+                <input type="file" name="video" data-rule="blank" date-errmsg="视频不能为空" class="file file-video" accept="video/*/">
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ $(function () {
     // 点击上传图片
     $(".file-img").change(function(){
         let delParent,defaults = {
-            fileType: ["jpg","png","jpeg"],   // 上传文件的类型
+            fileType: /(jpg)|(png)|(jpeg)/i,  // 上传文件的类型
             fileSize: 1024 * 1024 * 10 ,      // 上传文件的大小 10M
             fileNum : 20                      // 上传图片总张数
         };
@@ -111,7 +111,7 @@ $(function () {
                 let newStr = file.name.split("").reverse().join("");
                 if(newStr.split(".")[0] != null){
                     let type = newStr.split(".")[0].split("").reverse().join("");
-                    if(jQuery.inArray(type, defaults.fileType) > -1){
+                    if(defaults.fileType.test(type)){
                         // 类型符合，可以上传
                         if (file.size >= defaults.fileSize) {
                             alert('您这个"'+ file.name +'"文件大小过大');
@@ -129,13 +129,13 @@ $(function () {
     //点击上传视频
     $(".file-video").change(function() {
         let defaults = {
-            fileType: ["mp4","avi"],            // 上传文件的类型
+            fileType: /(mp4)|(avi)/i,           // 上传文件的类型
             fileSize: 1024 * 1024 * 1024 * 2 ,  // 上传文件的大小 2G
         };
         let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent;
         if(file.size <= defaults.fileSize){
             let type = file.name.split("").join("").split(".")[1];
-            if(jQuery.inArray(type, defaults.fileType) > -1){
+            if(defaults.fileType.test(type)){
                 $('.up-video-btn').hide();
                 let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
                 videoContainer.prepend(v_box);

@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<form id="video-up" class="flexitemv wrap" action="" method="post" enctype="multipart/form-data">
-    <div class="flexitemv custombox">
-        <div class="around upload">
-            <div class="up-btn z-up">
+<form id="video-up" class="flexv mainbox wrap" action="" method="post" enctype="multipart/form-data">
+    <div class="flexv custombox">
+        <!--上传图片-->
+        <div class="flexv up-img upload">
+            <p class="flex c-tit">上传图片素材</p>
+            <div class="br up-img-box">
+                <div class="up-btn up-img-btn">
+                    <input type="file" name="image" multiple class="file file-img" accept="image/*/">
+                </div>
+            </div>
+        </div>
+        <!--上传视频-->
+        <div class="between upload">
+            <div class="up-btn up-vid-btn">
                 <input type="file" class="file file-video" accept="video/*/"/>
             </div>
             <div class="c-text">上传视频，支持MP4、AVI格式，单个视频不可超过2G。</div>
@@ -31,42 +41,105 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript">
-    $(function () {
-        //点击上传视频
-        $(".file-video").change(function() {
-            let defaults = {
-                fileType: ["mp4","avi"],            // 上传文件的类型
-                fileSize: 1024 * 1024 * 1024 * 2 ,  // 上传文件的大小 2G
-            };
-            let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent;
-            if(file.size <= defaults.fileSize){
-                let type = file.name.split("").join("").split(".")[1];
-                if(jQuery.inArray(type, defaults.fileType) > -1){
-                    $('.up-btn').hide();
-                    let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
-                    videoContainer.prepend(v_box);
-                    // 删除
-                    let $del = $('<i class="flex center close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
-                        event.preventDefault();
-                        event.stopPropagation();
-                        delParent = $(this).parent();
+$(function () {
+    // 点击上传图片
+    $(".file-img").change(function(){
+        let delParent,defaults = {
+            fileType: /(jpg)|(png)|(jpeg)/i,  // 上传文件的类型
+            fileSize: 1024 * 1024 * 10 ,      // 上传文件的大小 10M
+            fileNum : 20                      // 上传图片总张数
+        };
+        let file = document.querySelector('.file-img');
+        let imgContainer = $(this).parents(".up-img-box"); //存放图片的父亲元素
+        let fileList = file.files; //获取的图片文件
+        let imgArr = [];
+        //遍历得到的图片文件
+        let numUp = imgContainer.find(".up-img").length;
+        let totalNum = numUp + fileList.length;  //总的数量
+        if(fileList.length > defaults.fileNum || totalNum > defaults.fileNum ){
+            alert("上传图片数目不可以超过20个，请重新选择");
+        } else if(numUp < defaults.fileNum){
+            fileList = validateUp(fileList);
+            for(let i = 0;i<fileList.length;i++){
+                let imgUrl = window.URL.createObjectURL(fileList[i]);
+                imgArr.push(imgUrl);
+                let $section = $("<div class='z-up'>");
+                imgContainer.prepend($section);
+                // 删除
+                let $del = $('<i class="flex center close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    delParent = $(this).parent();
+                    let numUp = delParent.siblings().length;
+                    if(numUp < defaults.fileNum+1){
                         delParent.parent().find(".up-btn").show();
-                        delParent.remove();
-                    });
-                    $del.appendTo(v_box);
-                }else{
-                    alert("文件格式不对哦!")
-                }
-            } else {
-                alert('文件大小过大');
+                    }
+                    delParent.remove();
+                });
+                $del.appendTo($section);
+                let $img = $("<img class='up-img fitimg'>");
+                $img.attr("src",imgArr[i]);
+                $img.appendTo($section);
             }
-        });
-
-        // 定制成功页面
-        $('.submit .s-btn').click(function(){
-            $('#video-up').remove();
-            customSuccess('../image/win.jpg','我们将在8小时内完成您的作品，请您耐心等待（特殊时间如节假日定制过多，也许会消耗一些时间。）','my_modu.html');
-        });
+        }
+        numUp = imgContainer.find(".up-img").length;
+        if(numUp >= defaults.fileNum){
+            $(this).parent().hide();
+        }
+        function validateUp(files){
+            let arrFiles = [];//替换的文件数组
+            for(let i = 0, file; file = files[i]; i++){
+                //获取文件上传的后缀名
+                let type = file.type.split("").join("").split("/")[1];
+                if(defaults.fileType.test(type)){
+                    // 类型符合，可以上传
+                    if (file.size >= defaults.fileSize) {
+                        alert('您这个"'+ file.name +'"文件大小过大');
+                    } else {
+                        // 在这里需要判断当前所有文件中
+                        arrFiles.push(file);
+                    }
+                }
+            }
+            return arrFiles;
+        }
     });
+
+    //点击上传视频
+    $(".file-video").change(function() {
+        let defaults = {
+            fileType: /(mp4)|(avi)/i,           // 上传文件的类型
+            fileSize: 1024 * 1024 * 1024 * 2 ,  // 上传文件的大小 2G
+        };
+        let videoContainer = $(this).parents(".upload"),file = document.querySelector('.file-video').files[0],delParent;
+        if(file.size <= defaults.fileSize){
+            let type = file.type.split("").join("").split("/")[1];
+            if(defaults.fileType.test(type)){
+                $('.up-vid-btn').hide();
+                let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
+                videoContainer.prepend(v_box);
+                // 删除
+                let $del = $('<i class="flex center close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    delParent = $(this).parent();
+                    delParent.parent().find(".up-btn").show();
+                    delParent.remove();
+                });
+                $del.appendTo(v_box);
+            }else{
+                alert("文件格式不对哦!")
+            }
+        } else {
+            alert('文件大小过大');
+        }
+    });
+
+    // 定制成功页面
+    $('.submit .s-btn').click(function(){
+        $('#video-up').remove();
+        customSuccess('../image/win.jpg','我们将在8小时内完成您的作品，请您耐心等待（特殊时间如节假日定制过多，也许会消耗一些时间。）','my_modu.html');
+    });
+});
 </script>
 </html>
