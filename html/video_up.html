@@ -99,6 +99,8 @@ $(function () {
                         // 在这里需要判断当前所有文件中
                         arrFiles.push(file);
                     }
+                } else {
+                    alert("文件格式不对哦!")
                 }
             }
             return arrFiles;
@@ -115,7 +117,7 @@ $(function () {
         if(file.size <= defaults.fileSize){
             let type = file.type.split("").join("").split("/")[1];
             if(defaults.fileType.test(type)){
-                $('.up-vid-btn').hide();
+                $(this).parent().hide();
                 let v_box = $(`<div class="z-up videobox"><img src="../image/user.jpg" class="fitimg"></div>`);
                 videoContainer.prepend(v_box);
                 // 删除

@@ -320,7 +320,6 @@ function showCliper (id,cid,title,callback){
 
 /**
  * 定制成功界面
- * @param id   要插入的地方
  * @param img  要插入的图片地址
  * @param text 需要填写的内容
  * @param modu 要查看的模板地址
