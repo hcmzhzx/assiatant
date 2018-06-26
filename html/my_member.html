@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的会员</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="my_member" class="wrap">
+    <div class="member_info">
+        <div class="flex center title">会员信息</div>
+        <ul class="info_list">
+           <li class="flex"><b class="flex">管理者</b><span class="flex">szx45665465465</span></li>
+           <li class="flex"><b class="flex">开通时间</b><span class="flex">2018-01-01</span></li>
+           <li class="flex"><b class="flex">截止时间</b><span class="flex">2018-01-01</span></li>
+           <li class="flex"><b class="flex">会员类型</b><span class="flex">连锁版</span></li>
+        </ul>
+    </div>
+    <div class="set_account">
+        <div class="flex center title">设置账户</div>
+        <p class="remind">设置您的登录账号、密码</br>同个账号可以多人使用。</p>
+        <form action="" class="account_form">
+            <label class="flex input">
+                <span class="flex endv">账号</span>
+                <input type="tel" name="name" class="flexitem" maxlength="11" placeholder="输入您的手机号" data-rule="m" data-errmsg="请输入正确手机号">
+            </label>
+            <label class="flex input">
+                <span class="flex endv">密码</span>
+                <input type="password" name="psd" class="flexitem" maxlength="16" placeholder="设置密码/不超过16位" data-rule="*" data-errmsg="请输入密码">
+            </label>
+
+            <div class="flex center btn">
+                <a href="javascript:;" class="flex center submit">确认提交</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script src="../js/checkform.js"></script>
+<script src="../js/functions.js"></script>
+<script type="text/javascript">
+    //表单验证
+    new checkForm({
+        form : '.account_form',
+        btn : '.submit',
+        error : function (ele,err){showMsg(err);},
+        complete : function (ele){
+            let post = $(ele).serializeArray();
+            console.log(post);
+            showProgress('设置中');
+        }
+    });
+</script>
+</html>

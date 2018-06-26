@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>申请使用</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="apply" class="flexv wrap" action="">
+    <div class="logo">
+        <img src="../image/logo_.jpg" class="fitimg">
+    </div>
+    <p>留下您的个人信息及联系方式（申请使用）。</p>
+    <form action="" class="apply_form">
+        <label class="flex input">
+            <span class="flex endv">姓名</span>
+            <input type="text" name="name" class="flexitem" maxlength="20" placeholder="最多20个字" data-rule="*" data-errmsg="请输入姓名">
+        </label>
+        <label class="flex input">
+            <span class="flex endv">手机号</span>
+            <input type="tel" name="phone" class="flexitem" maxlength="11" placeholder="请输入手机号" data-rule="m" data-errmsg="请输入正确手机号">
+        </label>
+        <label class="flex input">
+            <span class="flex endv">邮箱</span>
+            <input type="email" name="email" class="flexitem" placeholder="请输入邮箱" data-rule="e" data-errmsg="请输入正确邮箱">
+        </label>
+    </form>
+    <div class="flex center btn">
+        <a href="javascript:;" class="flex center submit">确认提交</a>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script src="../js/checkform.js"></script>
+<script src="../js/functions.js"></script>
+<script type="text/javascript">
+    // 验证表单
+    new checkForm({
+        form : '.apply_form',
+        btn : '.submit',
+        error : function (ele,err){showMsg(err);},
+        complete : function (ele){
+            let post = $(ele).serializeArray();
+            showProgress('申请中');
+            console.log(post);
+            //模拟请求
+            setTimeout(()=>{
+                hideProgress();
+                const apply = `<div id="alert" class="apply_alert">
+                    <div class="mask" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+                    <div class="flex center content">申请成功！</div>
+                </div>`;
+                $('#apply').append(apply);
+                $('.apply_alert .content').css({'width':'50%','margin':'-3rem 0 0 -8rem','visibility':'visible'});
+
+                //关闭弹窗并返回上一页
+                $('.mask').click(function () {
+                    $('.apply_alert').remove();
+                    window.location.href='open_member.html';
+                });
+            },1500)
+        }
+    });
+</script>
+</html>

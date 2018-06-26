@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<div id="poster-cont" class="flexv  wrap">
+<div id="poster-cont" class="flexv wrap">
     <!--海报内容-->
-    <div class="flex poster">
-        <img src="../image/640-1138.jpg" class="poster_img">
-        <!--<img src="../image/750-1334.jpg" class="poster_img">-->
+    <div class="flexitem center poster">
+        <!--<img src="../image/640-1138.jpg" class="poster_img">-->
+        <img src="../image/poster-cs.jpg" class="poster_img">
     </div>
     <div class="around btn">
         <a href="javascript:;" class="flex center use">一键使用</a>
@@ -47,16 +47,16 @@ $(function(){
             //绘制背景图
             ctx.drawImage(imgs, 0, 0);
             ctx.fillStyle = 'rgba(0,0,0,.6)';
-            ctx.fillRect(0, can.height-180, can.width, can.height-180);
-            ctx.drawImage(qrcode, can.width-155, can.height-155, 138, 138);
+            ctx.fillRect(0, can.height-160, can.width, can.height-160);
+            ctx.drawImage(qrcode, can.width-145, can.height-145, 130, 130);
             //绘制用户头像
             ctx.save();
             ctx.strokeStyle = '#ccc';
             ctx.lineWidth = 2;
-            ctx.arc(85, can.height-88, 70, 0, Math.PI*2);
+            ctx.arc(84, can.height-80, 70, 0, Math.PI*2);
             ctx.stroke();
             ctx.clip();
-            ctx.drawImage(user, 0, 0, user.width, user.height, 16, can.height-156, 140, 140);
+            ctx.drawImage(user, 0, 0, user.width, user.height, 14, can.height-150, 140, 140);
             ctx.restore();
             //绘制信息
             ctx.font = '32px Arial';
@@ -70,7 +70,7 @@ $(function(){
     // 调用绘制图片
     poster(Img.src,brand,name,phone,qrcode);
 
-    var age = 1;
+    var age = 2;
     $('.btn .use').click(function(){
         $('.btn').hide();
         if(age == 1){

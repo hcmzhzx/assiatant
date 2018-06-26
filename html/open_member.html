@@ -9,78 +9,18 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<div id="open" class="flexv wrap">
-    <div class="flexitemv mainbox">
-        <div class="state">状态：<span>未开通</span></div>
-        <div class="bjimg">
-            <img src="../image/dredge1.jpg" class="fitimg">
-            <img src="../image/dredge2.jpg" class="fitimg">
-            <img src="../image/dredge3.jpg" class="fitimg">
-            <div class="flex center optionbox">
-                <div class="flex center option">
-                    <div class="flexv discount">
-                        <div class="flex list">
-                            <div class="flexv">
-                                <div class="flex centerv price">
-                                    <span class="flex">1年</span>
-                                    <em>¥99</em>
-                                </div>
-                                <div class="cost">
-                                    <i class="original">原价 199元</i>
-                                    <span>立省100元</span>
-                                </div>
-                            </div>
-                            <div class="flexitem endh">
-                                <a href="javascript:;" class="flex center discounts">优惠抢购</a>
-                            </div>
-                            <div class="flex center cornu">优惠</div>
-                        </div>
-                        <div class="flex list">
-                            <div class="flex centerv price">
-                                <span class="flex">1个月</span>
-                                <em>¥39.9</em>
-                            </div>
-                            <div class="flexitem endh">
-                                <a href="javascript:;" class="flex center discounts">购买</a>
-                            </div>
-                        </div>
-                        <div class="flex list">
-                            <div class="flex centerv price">
-                                <span class="flex">2年</span>
-                                <em>¥158</em>
-                            </div>
-                            <div class="flexitem endh">
-                                <a href="javascript:;" class="flex center discounts">购买</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div id="open" class="flexv wrap mainbox">
+    <div class="flexv bjimg">
+        <img src="../image/member1.png" class="fitimg">
+        <div class="flex center trybtn">
+            <a href="apply.html" class="flex center btn">报名试用</a>
         </div>
-    </div>
-    <div class="flex center once" style="">
-        <a href="javascript:;" class="flex center">立即开通</a>
+        <img src="../image/member2.png" class="fitimg">
+        <img src="../image/member3.png" class="fitimg">
+        <img src="../image/member4.png" class="fitimg">
+        <img src="../image/member5.png" class="fitimg">
+        <img src="../image/member6.png" class="fitimg">
     </div>
 </div>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<script type="text/javascript">
-    // 点击回到底部
-    window.onload = function () {
-        var h = $(".bjimg").height() - $(document).height() + $(".state").innerHeight(), opbox = $('.optionbox').height(), boxh;
-        $(".once a").click(function () {
-            $(".mainbox").animate({scrollTop: h}, 200);
-        });
-        // 手动滚动显/隐开通按钮
-        $('.mainbox').scroll(function () {
-            boxh = $(".mainbox").scrollTop();
-            if (boxh >= h - opbox) {
-                $(".once").hide();
-            } else {
-                $(".once").show();
-            }
-        });
-    }
-</script>
 </html>

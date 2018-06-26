@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>账号登录</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="login" class="wrap">
+    <div class="logo"><img src="../image/logo.png" class="fitimg"></div>
+    <form action="" class="login_form">
+        <label class="flex input">
+            <span class="flex endv">账号</span>
+            <input type="tel" name="name" class="flexitem" maxlength="11" placeholder="输入您的手机号" data-rule="m" data-errmsg="请输入正确手机号">
+        </label>
+        <label class="flex input">
+            <span class="flex endv">密码</span>
+            <input type="password" name="psd" class="flexitem" maxlength="16" placeholder="设置密码/不超过16位" data-rule="*" data-errmsg="请输入密码">
+        </label>
+        <div class="flex center btn">
+            <a href="javascript:;" class="flex center submit">登录</a>
+        </div>
+    </form>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script src="../js/checkform.js"></script>
+<script src="../js/functions.js"></script>
+<script type="text/javascript">
+    //表单验证
+    new checkForm({
+        form : '.login_form',
+        btn : '.submit',
+        error : function (ele,err){showMsg(err);},
+        complete : function (ele){
+            let post = $(ele).serializeArray();
+            console.log(post);
+            showProgress('登录中');
+        }
+    });
+</script>
+</html>

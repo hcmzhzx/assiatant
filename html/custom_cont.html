@@ -13,14 +13,14 @@
     <!--上传链接-->
     <div class="felxv up-href area">
         <p class="flex c-tit">上传样板链接</p>
-        <input type="text" name="href" data-rule="href" data-errmsg="请填写正确的链接" class="flexv" placeholder="将链接粘贴到框内">
+        <!--<input type="text" name="href" data-rule="href" data-errmsg="请填写正确的链接" class="flexv" placeholder="将链接粘贴到框内">-->
     </div>
     <!--上传图片-->
     <div class="flexv up-img area">
         <p class="flex c-tit">上传图片素材</p>
         <div class="br upload">
             <div class="flex up-btn up-img-btn">
-                <input type="file" name="image" data-rule="blank" date-errmsg="图片不能为空" multiple class="file file-img" accept="image/jpg,image/png">
+                <input type="file" name="image[]" multiple class="file file-img" accept="image/jpg,image/png">
             </div>
         </div>
     </div>
@@ -29,24 +29,24 @@
         <p class="flex c-tit">上传视频素材</p>
         <div class="upload">
             <div class="flex up-btn up-video-btn">
-                <input type="file" name="video" data-rule="blank" date-errmsg="视频不能为空" class="file file-video" accept="video/*/">
+                <!--<input type="file" name="video" data-rule="blank" date-errmsg="视频不能为空" class="file file-video" accept="video/*/">-->
             </div>
         </div>
     </div>
     <!--填写文案内容-->
     <div class="flexv up-text area">
         <p class="flex c-tit">填写文案内容</p>
-        <textarea class="flex claim" name="content" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>
+        <!--<textarea class="flex claim" name="content" placeholder="请输入您需要的文案内容，请尽量详细。"></textarea>-->
     </div>
     <!--填写您的要求-->
     <div class="flexv up-ask area">
         <p class="flex c-tit">填写您的要求</p>
-        <textarea class="flex claim" name="claim" placeholder="写下您对模板需求，我们会尽量按照您的要求制作，如您不填写我们将依照自己的偏好为您设计。"></textarea>
+        <!--<textarea class="flex claim" name="claim" placeholder="写下您对模板需求，我们会尽量按照您的要求制作，如您不填写我们将依照自己的偏好为您设计。"></textarea>-->
     </div>
     <!--填写定制模板名称-->
     <div class="felxv up-href area">
         <p class="flex c-tit">填写定制模板名称</p>
-        <input type="text" name="name" data-rule="cname" data-errmsg="模板名称不能为空" class="flexv" placeholder="请输入模板名称">
+        <!--<input type="text" name="name" data-rule="cname" data-errmsg="模板名称不能为空" class="flexv" placeholder="请输入模板名称">-->
     </div>
     <!--提交按钮-->
     <div class="flex center submit">
@@ -61,6 +61,7 @@
 <script type="text/javascript">
 $(function () {
     // 点击上传图片
+    let form = new FormData();
     $(".file-img").change(function(){
         let delParent,defaults = {
             fileType: /(jpg)|(png)|(jpeg)/i,  // 上传文件的类型
@@ -79,16 +80,27 @@ $(function () {
         } else if(numUp < defaults.fileNum){
             fileList = validateUp(fileList);
             for(let i = 0;i<fileList.length;i++){
+                form.append('media[]',fileList[i]);
                 let imgUrl = window.URL.createObjectURL(fileList[i]);
                 imgArr.push(imgUrl);
                 let $section = $("<div class='z-up'>");
-                imgContainer.prepend($section);
+                $('.up-img-btn').before($section);
                 // 删除
                 let $del = $('<i class="flex center close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
                     event.preventDefault();
                     event.stopPropagation();
                     delParent = $(this).parent();
                     let numUp = delParent.siblings().length;
+                    form.getAll('media[]').filter((val,index) => {
+                        return index != delParent.index()
+                    }).forEach((val,index) => {
+                        if(index == 0){
+                            form.delete('media[]');
+                            form.append('media[]',val);
+                        } else {
+                            form.append('media[]',val);
+                        }
+                    });
                     if(numUp < defaults.fileNum+1){
                         delParent.parent().find(".up-btn").show();
                     }
@@ -116,7 +128,7 @@ $(function () {
                         if (file.size >= defaults.fileSize) {
                             alert('您这个"'+ file.name +'"文件大小过大');
                         } else {
-                            // 在这里需要判断当前所有文件中
+                            // 在这里需要判断当前所有文件
                             arrFiles.push(file);
                         }
                     }
@@ -160,14 +172,13 @@ $(function () {
     var checker = new checkForm({
         form:'#custom-cont',
         btn:'.btn',
-        error:function(ele,err){showMsg(err);},
+        error:function(ele,err){showMsg(err)},
         complete:function (ele) {
             var post = $(ele).serializeArray();
-            console.log(post);
-
+            console.log(form.getAll('media[]'));
             // 提交定制成功页面
-            $('#custom-cont').remove();
-            customSuccess('../image/win.jpg','我们将在8小时内完成您的作品，请您耐心等待（特殊时间如节假日定制过多，也许会消耗一些时间。）','my_modu.html');
+            //$('#custom-cont').remove();
+            //customSuccess('../image/win.jpg','我们将在8小时内完成您的作品，请您耐心等待（特殊时间如节假日定制过多，也许会消耗一些时间。）','my_modu.html');
         }
     });
 });

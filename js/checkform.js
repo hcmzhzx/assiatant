@@ -1,6 +1,3 @@
-/**
- * Created by xiaohu on 2018/4/8.
- */
 var checkForm = function (config){
     this.defaultRule = {
         "*": /^[\w\W]+$/,
@@ -8,11 +5,10 @@ var checkForm = function (config){
         "n": /^\d+$/,
         "m": /^1[34578]\d{9}$/,
         "e": /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
-        "cname": /^[\u0391-\uFFE5]{2,15}$/,
+        "cname": /^[\u0391-\uFFE5]{2,20}$/,
         "idcard": /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
         "card" : /^\d{16,20}$/,
         "pwd" : /^[^\s]{6,16}$/,
-        "domain" : /^[^\s]{3,6}$/,
         "href" : /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
         "blank" : /\s/
     };

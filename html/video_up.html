@@ -16,7 +16,7 @@
             <p class="flex c-tit">上传图片素材</p>
             <div class="br up-img-box">
                 <div class="up-btn up-img-btn">
-                    <input type="file" name="image" multiple class="file file-img" accept="image/*/">
+                    <input type="file" name="image-video[]" multiple class="file file-img" accept="image/*/">
                 </div>
             </div>
         </div>
@@ -43,6 +43,7 @@
 <script type="text/javascript">
 $(function () {
     // 点击上传图片
+    let form = new FormData();
     $(".file-img").change(function(){
         let delParent,defaults = {
             fileType: /(jpg)|(png)|(jpeg)/i,  // 上传文件的类型
@@ -61,16 +62,27 @@ $(function () {
         } else if(numUp < defaults.fileNum){
             fileList = validateUp(fileList);
             for(let i = 0;i<fileList.length;i++){
+                form.append('image-video[]',fileList[i]);
                 let imgUrl = window.URL.createObjectURL(fileList[i]);
                 imgArr.push(imgUrl);
                 let $section = $("<div class='z-up'>");
-                imgContainer.prepend($section);
+                $('.up-img-btn').before($section);
                 // 删除
                 let $del = $('<i class="flex center close-upimg"><svg class="zs" aria-hidden="true"><use xlink:href="#del"></use></svg></i>').on("click",function(event){
                     event.preventDefault();
                     event.stopPropagation();
                     delParent = $(this).parent();
                     let numUp = delParent.siblings().length;
+                    form.getAll('image-video[]').filter((val,index) => {
+                        return index != delParent.index()
+                    }).forEach((val,index) => {
+                        if(index == 0){
+                            form.delete('image-video[]');
+                            form.append('image-video[]',val);
+                        } else {
+                            form.append('image-video[]',val);
+                        }
+                    });
                     if(numUp < defaults.fileNum+1){
                         delParent.parent().find(".up-btn").show();
                     }
@@ -87,6 +99,7 @@ $(function () {
             $(this).parent().hide();
         }
         function validateUp(files){
+            console.log(files);
             let arrFiles = [];//替换的文件数组
             for(let i = 0, file; file = files[i]; i++){
                 //获取文件上传的后缀名

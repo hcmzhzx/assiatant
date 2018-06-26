@@ -13,34 +13,36 @@
     <div class="flexitemv center">
         <div class="flexv name">视频名称</div>
         <div class="flex center v-vdieo">
-            <!--<video poster="../image/ppt.png" src="http://hyrz.qq.com/act/a20160113muyecun/video/video2low.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen></video>-->
+            <video src="http://file.ih5.cn/v3/files/1630112/20170930/ef0e798b.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen></video>
             <!--<video src="http://7xvl2z.com1.z0.glb.clouddn.com/nigg2.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen></video>-->
-            <video  src="http://file.ih5.cn/v3/files/1630112/20170930/ef0e798b.mp4" webkit-playsinline playsinline x-webkit-airplay x5-playsinline x5-video-player-type x5-video-player-fullscreen></video>
             <i class="flex center icon"><svg class="zs" aria-hidden><use xlink:href="#SP"></use></svg></i>
         </div>
         <div class="depict">是个黑时代光华煽风点火地方噶而过十分噶地方干哈的各环节sad搞活动覆盖撒地方噶地方官</div>
         <div class="flexitem endhc made-btn">
-            <a href="video_up.html" class="flex center btn">定制这个模板</a>
+            <a href="javascript:;" class="flex center btn" data-url="http://use.zx85.net/chengming/assistant/html/">定制这个模板</a>
         </div>
     </div>
 </div>
 </body>
 <script src="../js/icon.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/functions.js"></script>
 <script type="text/javascript">
 window.onload = function () {
-    $('.v-vdieo').height(18 + 'rem');  // 视频横
-    $('.v-vdieo video').attr('poster','../image/v-h-bj.jpg');
-    $('video').width(100 + '%');
-
-    /*$('.v-vdieo').height(30 + 'rem');  // 视频竖
-    $('.v-vdieo video').attr('poster','../image/v-s-bj.jpg');
-    $('video').height(100 + '%');*/
+    if(true){
+        document.querySelector('video').style.width = 100+'%';  // 视频横
+        document.querySelector('video').setAttribute("poster","../image/v-h-bj.jpg")
+        document.querySelector('.v-vdieo').style.height = 18+'rem';
+    } else {
+        document.querySelector('video').style.height = 100+'%';  // 视频竖
+        document.querySelector('video').setAttribute("poster","../image/v-s-bj.jpg")
+        document.querySelector('.v-vdieo').style.height = 30+'rem';
+    }
 
     // 播放
     $('.v-vdieo,video').on("touchend",function(e){
         e.stopPropagation();
-        let x = $(this)[0]==$('.v-vdieo')[0]?$(this).find('video')[0]:$(this)[0];
+        let x = $(this)[0]==$('.v-vdieo')[0] ? $(this).find('video')[0] : $(this)[0];
         if(x.paused){
             x.play();
             $('.icon').hide();
@@ -50,8 +52,20 @@ window.onload = function () {
         }
         $('video').on('error ended',function () {
             $('.icon').show();
-            $('.depict').text($('.depict').text()+'——结束');
+            console.log('结束');
         });
+    });
+
+    // 定制模板
+    let state = true;
+    $(".made-btn a.btn").click(function(){
+        var url = $(this).attr('data-url');
+        if(state) {
+            showAlert('', "您还没开通会员" ,[{t:'去开通',u: url + 'open_member.html'}]);
+        } else {
+            window.location.href = url + 'video_up.html';
+        }
+        state = false;
     });
 }
 </script>
